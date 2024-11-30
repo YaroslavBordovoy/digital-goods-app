@@ -3,8 +3,7 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views import generic
 
-from digital_store.models import Product
-
+from digital_store.models import Product, Category
 
 User = get_user_model()
 
@@ -19,3 +18,7 @@ class IndexView(generic.TemplateView):
         context["product_amount"] = Product.objects.count()
 
         return context
+
+
+class CategoryListView(generic.ListView):
+    model = Category

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if category_list %}
+    <ul>
+      {% for category in category_list %}
+        <li>
+          <p><strong>{{ category.name }}</strong></p>
+          <p class="text-muted">{{ category.description }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
