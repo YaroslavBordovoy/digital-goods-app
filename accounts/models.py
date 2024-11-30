@@ -13,4 +13,3 @@ class User(AbstractUser):
         choices=UserRole,
         default=UserRole.CUSTOMER
     )
-

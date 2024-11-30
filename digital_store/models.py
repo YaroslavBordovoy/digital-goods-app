@@ -20,6 +20,13 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        permissions = [
+            ("can_add_product", "Can add product"),
+            ("can_edit_product", "Can edit product"),
+            ("can_delete_product", "Can delete product"),
+        ]
+
     def __str__(self) -> str:
         return f"Product: {self.name} (price: {self.price}, category: {self.category})"
 
@@ -55,6 +62,11 @@ class Order(models.Model):
         choices=StatusChoice,
         default=StatusChoice.PENDING
     )
+    cart = models.ForeignKey(
+        to="Cart",
+        on_delete=models.CASCADE,
+        related_name="orders",
+    )
 
 
 class Cart(models.Model):
@@ -62,14 +74,15 @@ class Cart(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
-    order = models.ForeignKey(
-        to=Order,
-        on_delete=models.CASCADE,
-        related_name="orders",
-    )
+
+    def __str__(self) -> str:
+        return f"User cart: {self.customer.username}"
 
 
 class OrderProduct(models.Model):
     product = models.ForeignKey(to=Product, on_delete=models.CASCADE)
-    order = models.ForeignKey(to=Order, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField()
+    order = models.ForeignKey(to=Order, on_delete=models.CASCADE, related_name="order_products")
+    quantity = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        unique_together = ("product", "order",)
