@@ -1,8 +1,6 @@
-from django.db import models
-
 from django.conf import settings
+from django.db import models
 from django.utils.translation import gettext_lazy as _
-
 
 
 class Product(models.Model):
@@ -18,7 +16,7 @@ class Product(models.Model):
         on_delete=models.CASCADE,
         related_name="seller_products",
     )
-    image = models.ImageField(upload_to="products/")
+    image = models.ImageField(upload_to="products/", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -29,6 +27,10 @@ class Product(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "categories"
+        ordering = ("name",)
 
     def __str__(self) -> str:
         return self.name
@@ -42,10 +44,10 @@ class Order(models.Model):
         CANCELLED = "CA", _("Cancelled")
         REFUNDED = "RE", _("Refunded")
 
-    product = models.ForeignKey(
+    product = models.ManyToManyField(
         to=Product,
-        on_delete=models.CASCADE,
         related_name="product_orders",
+        through="OrderProduct",
     )
     order_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(
@@ -53,7 +55,6 @@ class Order(models.Model):
         choices=StatusChoice,
         default=StatusChoice.PENDING
     )
-    quantity = models.PositiveIntegerField()
 
 
 class Cart(models.Model):
@@ -66,3 +67,9 @@ class Cart(models.Model):
         on_delete=models.CASCADE,
         related_name="orders",
     )
+
+
+class OrderProduct(models.Model):
+    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)
+    order = models.ForeignKey(to=Order, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
