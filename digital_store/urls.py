@@ -13,6 +13,8 @@ from digital_store.views import (
     ProductDeleteView,
     CartView,
     CartAddView,
+    OrderListView,
+    OrderCreateView,
 )
 
 app_name = "digital_store"
@@ -30,4 +32,7 @@ urlpatterns = [
     path("product/<int:pk>/delete/", ProductDeleteView.as_view(), name="product-delete"),
     path("cart/", CartView.as_view(), name="cart-list"),
     path("cart/<int:pk>/add/", CartAddView.as_view(), name="cart-add"),
+    path("cart/<int:pk>/quantity-change/", CartAddView.as_view(), name="cart-quantity-change"),
+    path("orders/", OrderListView.as_view(), name="order-list"),
+    path("order/create/", OrderCreateView.as_view(), name="order-create"),
 ]

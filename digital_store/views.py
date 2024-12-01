@@ -6,7 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 
 from digital_store.forms import ProductCreateForm
-from digital_store.models import Product, Category, Cart, Order, CartProduct
+from digital_store.models import Product, Category, Cart, Order, CartProduct, OrderProduct
 
 User = get_user_model()
 
@@ -134,3 +134,27 @@ class CartAddView(generic.View):
 
         return redirect("digital_store:cart-list")
 
+
+class OrderListView(generic.ListView):
+    model = Order
+
+
+class OrderCreateView(generic.View):
+    def post(self, request: HttpRequest, *args, **kwargs):
+        cart = Cart.objects.get(customer=self.request.user)
+
+        if cart.cart_items.exists():
+            order = Order.objects.create()
+            order_products = [
+                OrderProduct(
+                    product=item.product,
+                    quantity=item.quantity,
+                    order=order,
+                )
+                for item in cart.cart_items.all()
+            ]
+            OrderProduct.objects.bulk_create(order_products)
+
+        CartProduct.objects.filter(cart__customer=self.request.user).delete()
+
+        return redirect("digital_store:order-list")

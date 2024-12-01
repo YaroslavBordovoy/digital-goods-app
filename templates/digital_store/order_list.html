@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Order list</h1>
+
+  {% if order_list %}
+    <ul>
+      {% for order in order_list %}
+        <li>
+          <p>{{ order.order_date }}</p>
+          <p>{{ order.status }}</p>
+          {% for product in order.products.all %}
+            <p>{{ product.name }} x {{ order_product.quantity }}</p>
+          {% endfor %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No orders have been created yet!</p>
+  {% endif %}
+  <a href="{% url 'digital_store:index' %}">Home page</a>
+{% endblock %}
