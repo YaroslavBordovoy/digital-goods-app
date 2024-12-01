@@ -11,9 +11,22 @@
           <p>Product name: {{ item.product.name }}</p>
           <p>Price: {{ item.product.price }}</p>
           <p>Quantity: {{ item.quantity }}</p>
+
+          <form method="post" action="{% url 'digital_store:cart-quantity-change' pk=item.product.pk %}">
+            {% csrf_token %}
+            <button type="submit" name="action" value="increase" class="btn btn-secondary">Add product</button>
+            <button type="submit" name="action" value="reduce" class="btn btn-secondary">Reduce product</button>
+          </form>
+
         </li>
       {% endfor %}
       <p>Total price: {{ total_price }}</p>
+
+      <form method="post" action="">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Place an order</button>
+      </form>
+
     </ul>
   {% endif %}
   <a href="{% url 'digital_store:index' %}">Home page</a>

@@ -115,15 +115,22 @@ class CartView(generic.TemplateView):
 
 
 class CartAddView(generic.View):
-    def post(self, request: HttpRequest, pk: int):
+    def post(self, request: HttpRequest, pk: int, *args, **kwargs):
         product = get_object_or_404(Product, id=pk)
         cart, created = Cart.objects.get_or_create(customer=self.request.user)
         cart_product, created = CartProduct.objects.get_or_create(cart=cart, product=product)
 
-        if not created:
+        action = self.request.POST.get("action")
+
+        if action == "increase":
             cart_product.quantity += 1
             cart_product.save()
+        if action == "reduce":
+            if cart_product.quantity > 1:
+                cart_product.quantity -= 1
+                cart_product.save()
+            else:
+                cart_product.delete()
 
-        return redirect("digital_store:product-list")
-
+        return redirect("digital_store:cart-list")
 
