@@ -51,7 +51,7 @@ class Order(models.Model):
         CANCELLED = "CA", _("Cancelled")
         REFUNDED = "RE", _("Refunded")
 
-    product = models.ManyToManyField(
+    products = models.ManyToManyField(
         to=Product,
         related_name="product_orders",
         through="OrderProduct",
@@ -62,11 +62,6 @@ class Order(models.Model):
         choices=StatusChoice,
         default=StatusChoice.PENDING
     )
-    cart = models.ForeignKey(
-        to="Cart",
-        on_delete=models.CASCADE,
-        related_name="orders",
-    )
 
 
 class Cart(models.Model):
@@ -75,14 +70,43 @@ class Cart(models.Model):
         on_delete=models.CASCADE,
     )
 
+    products = models.ManyToManyField(
+        to=Product,
+        related_name="product_carts",
+        through="CartProduct",
+    )
+
     def __str__(self) -> str:
         return f"User cart: {self.customer.username}"
 
 
 class OrderProduct(models.Model):
-    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)
-    order = models.ForeignKey(to=Order, on_delete=models.CASCADE, related_name="order_products")
+    product = models.ForeignKey(
+        to=Product,
+        on_delete=models.CASCADE
+    )
+    order = models.ForeignKey(
+        to=Order,
+        on_delete=models.CASCADE,
+        related_name="order_items"
+    )
     quantity = models.PositiveIntegerField(default=1)
 
     class Meta:
         unique_together = ("product", "order",)
+
+
+class CartProduct(models.Model):
+    cart = models.ForeignKey(
+        to=Cart,
+        on_delete=models.CASCADE,
+        related_name="cart_items",
+    )
+    product = models.ForeignKey(
+        to=Product,
+        on_delete=models.CASCADE,
+    )
+    quantity = models.PositiveIntegerField(default=1)
+
+
+
