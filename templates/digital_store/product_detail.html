@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3><strong>Product name: {{ product.name }}</strong></h3>
+  <p class="text-muted">Seller: {{ product.seller.username }}</p>
+  <p><strong>Price: </strong>{{ product.price }}</p>
+
+  {% if product.description %}
+    <p><strong>Description:</strong><br> {{ product.description }}</p>
+  {% else %}
+    <p class="text-muted">Description is missing</p>
+  {% endif %}
+
+  {% if product.category.all %}
+    <p><strong>
+      Category:</strong>
+      {% for category in product.category.all %}
+        {{ category.name }} {% if not forloop.last %}, {% endif %}
+        </p>
+      {% endfor %}
+  {% else %}
+    <p class="text-muted">No categories assigned</p>
+  {% endif %}
+
+  <a href="{% url 'digital_store:product-update' pk=product.pk %}">Update</a>
+  <a href="{% url 'digital_store:product-delete' pk=product.pk %}">Delete</a>
+{% endblock %}
