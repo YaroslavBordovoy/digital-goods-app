@@ -22,6 +22,11 @@
     <p class="text-muted">No categories assigned</p>
   {% endif %}
 
+  <form method="post" action="{% url 'digital_store:cart-add' pk=product.pk %}">
+    {% csrf_token %}
+    <input type="submit" value="Add product to cart" class="btn btn-success">
+  </form>
+  
   <a href="{% url 'digital_store:product-update' pk=product.pk %}">Update</a>
   <a href="{% url 'digital_store:product-delete' pk=product.pk %}">Delete</a>
 {% endblock %}

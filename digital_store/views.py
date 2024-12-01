@@ -1,13 +1,12 @@
 from django.contrib.auth import get_user_model
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 
 from digital_store.forms import ProductCreateForm
-from digital_store.models import Product, Category
-
+from digital_store.models import Product, Category, Cart, Order, CartProduct
 
 User = get_user_model()
 
@@ -95,3 +94,36 @@ class ProductUpdateView(generic.UpdateView):
 class ProductDeleteView(generic.DeleteView):
     model = Product
     success_url = reverse_lazy("digital_store:product-list")
+
+
+class CartView(generic.TemplateView):
+    template_name = "digital_store/cart_view.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cart, created = Cart.objects.get_or_create(customer=self.request.user)
+
+        cart_items = cart.cart_items.select_related("product")
+
+        context["total_price"] = sum(
+            item.product.price * item.quantity for item in cart_items
+        )
+
+        context["cart_items"] = cart_items
+
+        return context
+
+
+class CartAddView(generic.View):
+    def post(self, request: HttpRequest, pk: int):
+        product = get_object_or_404(Product, id=pk)
+        cart, created = Cart.objects.get_or_create(customer=self.request.user)
+        cart_product, created = CartProduct.objects.get_or_create(cart=cart, product=product)
+
+        if not created:
+            cart_product.quantity += 1
+            cart_product.save()
+
+        return redirect("digital_store:product-list")
+
+
