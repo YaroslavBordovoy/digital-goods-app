@@ -5,6 +5,7 @@ from django.views import generic
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 
+from digital_store.forms import ProductCreateForm
 from digital_store.models import Product, Category
 
 
@@ -57,4 +58,40 @@ class CategoryDeleteView(generic.DeleteView):
         return super().form_valid(form)
 
 
+class ProductListView(generic.ListView):
+    model = Product
+    queryset = Product.objects.select_related("seller").prefetch_related("category")
+    paginate_by = 9
 
+
+class ProductDetailView(generic.DetailView):
+    model = Product
+
+
+class ProductCreateView(generic.CreateView):
+    model = Product
+    form_class = ProductCreateForm
+
+    def get_success_url(self):
+        return reverse_lazy("digital_store:product-detail", kwargs={"pk": self.object.pk})
+
+    def form_valid(self, form):
+        form.instance.seller = self.request.user
+        return super().form_valid(form)
+
+
+class ProductUpdateView(generic.UpdateView):
+    model = Product
+    form_class = ProductCreateForm
+
+    def get_success_url(self):
+        return reverse_lazy("digital_store:product-detail", kwargs={"pk": self.object.pk})
+
+    def form_valid(self, form):
+        form.instance.seller = self.request.user
+        return super().form_valid(form)
+
+
+class ProductDeleteView(generic.DeleteView):
+    model = Product
+    success_url = reverse_lazy("digital_store:product-list")
