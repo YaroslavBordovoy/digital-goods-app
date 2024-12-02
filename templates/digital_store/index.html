@@ -2,13 +2,14 @@
 
 {% block content %}
   {% if user.is_authenticated %}
-    <form method="post" action="{% url 'logout' %}">
+    <form method="post" action="{% url 'accounts:logout' %}">
     {% csrf_token %}
     <input type="submit" value="Logout">
   </form>
   {% else %}
-    <a href="{% url 'login' %}">Login</a><br>
+    <a href="{% url 'accounts:login' %}">Login</a><br>
   {% endif %}
+  <a href="{% url 'accounts:register' %}">Register</a><br>
   
   
   <p>Customers: {{ customer_amount }}</p>
