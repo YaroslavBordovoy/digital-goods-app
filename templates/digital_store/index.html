@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% if user.is_authenticated %}
+    <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <input type="submit" value="Logout">
+  </form>
+  {% else %}
+    <a href="{% url 'login' %}">Login</a><br>
+  {% endif %}
+  
+  
   <p>Customers: {{ customer_amount }}</p>
   <p>Sellers: {{ seller_amount }}</p>
   <p>Products: {{ product_amount }}</p>
