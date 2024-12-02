@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Permission
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
@@ -53,6 +54,13 @@ def activate(request, uid, token):
 
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
+        if user.role == "SL":
+            permissions = Permission.objects.filter(
+                content_type__model__in=["category", "product"],
+                content_type__app_label="digital_store",
+            )
+            user.user_permissions.add(*permissions)
+
         user.save()
 
         return HttpResponse(
