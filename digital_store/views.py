@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
@@ -9,6 +10,14 @@ from digital_store.forms import ProductCreateForm
 from digital_store.models import Product, Category, Cart, Order, CartProduct, OrderProduct
 
 User = get_user_model()
+SELLER_PERMISSIONS = [
+        "category.can_add_category",
+        "category.can_edit_category",
+        "category.can_delete_category",
+        "product.can_add_product",
+        "product.can_edit_product",
+        "product.can_delete_product",
+    ]
 
 class IndexView(generic.TemplateView):
     template_name = "digital_store/index.html"
@@ -26,7 +35,8 @@ class CategoryListView(generic.ListView):
     model = Category
 
 
-class CategoryCreateView(generic.CreateView):
+class CategoryCreateView(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+    permission_required = SELLER_PERMISSIONS
     model = Category
     fields = ("name", "description",)
     success_url = reverse_lazy("digital_store:category-list")
@@ -37,7 +47,8 @@ class CategoryCreateView(generic.CreateView):
         return super().form_valid(form)
 
 
-class CategoryUpdateView(generic.UpdateView):
+class CategoryUpdateView(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+    permission_required = SELLER_PERMISSIONS
     model = Category
     fields = ("name", "description",)
     success_url = reverse_lazy("digital_store:category-list")
@@ -48,7 +59,8 @@ class CategoryUpdateView(generic.UpdateView):
         return super().form_valid(form)
 
 
-class CategoryDeleteView(generic.DeleteView):
+class CategoryDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+    permission_required = SELLER_PERMISSIONS
     model = Category
     success_url = reverse_lazy("digital_store:category-list")
 
@@ -67,7 +79,8 @@ class ProductDetailView(generic.DetailView):
     model = Product
 
 
-class ProductCreateView(generic.CreateView):
+class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+    permission_required = SELLER_PERMISSIONS
     model = Product
     form_class = ProductCreateForm
 
@@ -79,7 +92,8 @@ class ProductCreateView(generic.CreateView):
         return super().form_valid(form)
 
 
-class ProductUpdateView(generic.UpdateView):
+class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+    permission_required = SELLER_PERMISSIONS
     model = Product
     form_class = ProductCreateForm
 
@@ -91,7 +105,8 @@ class ProductUpdateView(generic.UpdateView):
         return super().form_valid(form)
 
 
-class ProductDeleteView(generic.DeleteView):
+class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+    permission_required = SELLER_PERMISSIONS
     model = Product
     success_url = reverse_lazy("digital_store:product-list")
 
@@ -114,7 +129,7 @@ class CartView(generic.TemplateView):
         return context
 
 
-class CartAddView(generic.View):
+class CartAddView(LoginRequiredMixin, generic.View):
     def post(self, request: HttpRequest, pk: int, *args, **kwargs):
         product = get_object_or_404(Product, id=pk)
         cart, created = Cart.objects.get_or_create(customer=self.request.user)
@@ -135,11 +150,11 @@ class CartAddView(generic.View):
         return redirect("digital_store:cart-list")
 
 
-class OrderListView(generic.ListView):
+class OrderListView(LoginRequiredMixin, generic.ListView):
     model = Order
 
 
-class OrderCreateView(generic.View):
+class OrderCreateView(LoginRequiredMixin, generic.View):
     def post(self, request: HttpRequest, *args, **kwargs):
         cart = Cart.objects.get(customer=self.request.user)
 
