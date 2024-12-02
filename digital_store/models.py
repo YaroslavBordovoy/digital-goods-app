@@ -38,6 +38,11 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "categories"
         ordering = ("name",)
+        permissions = [
+            ("can_add_category", "Can add category"),
+            ("can_edit_category", "Can edit category"),
+            ("can_delete_category", "Can delete category"),
+        ]
 
     def __str__(self) -> str:
         return self.name
@@ -110,6 +115,3 @@ class CartProduct(models.Model):
 
     class Meta:
         unique_together = ("product", "cart",)
-
-
-
