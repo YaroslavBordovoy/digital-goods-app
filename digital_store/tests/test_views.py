@@ -19,7 +19,7 @@ class IndexViewTest(TestCase):
         self.assertEqual(response.context["product_amount"], 1)
 
 
-class CategoryTests(TestCase):
+class CategoryViewsTests(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username="seller",
@@ -95,3 +95,75 @@ class CategoryTests(TestCase):
 
         self.assertEqual(response.status_code, 302)
         self.assertFalse(Category.objects.filter(id=category.id).exists())
+
+
+class ProductViewsTests(TestCase):
+    def setUp(self):
+        self.seller = get_user_model().objects.create_user(username="seller", role="SL")
+        self.seller.user_permissions.add(Permission.objects.get(codename="can_add_product"))
+        self.seller.user_permissions.add(Permission.objects.get(codename="can_edit_product"))
+        self.seller.user_permissions.add(Permission.objects.get(codename="can_delete_product"))
+
+        self.category = Category.objects.create(name="Test category", description="Test description")
+
+        self.product1 = Product.objects.create(name="product1", price=10, seller=self.seller)
+        self.product2 = Product.objects.create(name="product2", price=20, seller=self.seller)
+
+        self.client.force_login(self.seller)
+
+    def test_product_list_view(self):
+        response = self.client.get(reverse("digital_store:product-list"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "product1")
+        self.assertContains(response, "product2")
+
+    def test_product_detail_view(self):
+        response = self.client.get(
+            reverse("digital_store:product-detail", args=[self.product1.id])
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "product1")
+        self.assertContains(response, "10")
+
+    def test_product_create_view(self):
+        response = self.client.post(
+            reverse("digital_store:product-create"),
+            {
+                "name": "test product",
+                "price": 300,
+                "description": "test_description",
+                "category": [self.category.id],
+            }
+        )
+
+        self.assertEqual(response.status_code, 302)
+
+        product = Product.objects.get(name="test product")
+
+        self.assertEqual(product.seller, self.seller)
+
+    def test_product_update_view(self):
+        response = self.client.post(
+            reverse("digital_store:product-update", args=[self.product1.id]),
+            {
+                "name": "test_update",
+                "price": 50,
+                "description": "test_update_description",
+                "category": [self.category.id],
+            }
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.product1.refresh_from_db()
+        self.assertEqual(self.product1.name, "test_update")
+        self.assertEqual(self.product1.price, 50)
+
+    def test_product_delete_view(self):
+        response = self.client.post(
+            reverse("digital_store:product-delete", args=[self.product1.id])
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(Product.objects.filter(id=self.product1.id).exists())
