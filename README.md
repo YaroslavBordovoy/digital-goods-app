@@ -34,7 +34,11 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
-5. (Optional) Tests are run with the command:
+5. To quickly fill the database, run the command:
+```
+python manage.py populate_db
+```
+6. (Optional) Tests are run with the command:
 ```
 python manage.py test
 ```
