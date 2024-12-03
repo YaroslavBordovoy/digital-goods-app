@@ -43,12 +43,17 @@ python manage.py populate_db
 python manage.py test
 ```
 
-## Further steps in the development of the project:
-- Add forms for searching for products;
-- Add product filtering by categories;
-- Add the ability to go from the category page to the corresponding products;
-- Update forms for creating categories and products;
-- Update favicons and product images;
-- Improve the order history, making it more informative;
-- Add additional tests;
-- ⚙️ (Potentially) Add functionality for processing orders by sellers.
+## Features
+- User Registration/Authentication
+- Category and product management for sellers using the application interface
+- Functional shopping cart with the ability to change the number of products and place orders
+
+## Further steps in the development of the project
+- Add forms for searching for products
+- Add product filtering by categories
+- Add the ability to go from the category page to the corresponding products
+- Update forms for creating categories and products
+- Update favicons and product images
+- Improve the order history, making it more informative
+- Add additional tests
+- ⚙️ (Potentially) Add functionality for processing orders by sellers
