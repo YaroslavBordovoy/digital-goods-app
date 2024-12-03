@@ -255,3 +255,54 @@ class CartViewsTests(TestCase):
         self.assertFalse(
             CartProduct.objects.filter(cart=self.cart, product=self.product1).exists()
         )
+
+
+class OrderViewsTest(TestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(
+            username="customer", role="CU"
+        )
+        self.product1 = Product.objects.create(
+            name="product1",
+            price=500,
+            seller=self.userб
+        )
+        self.product2 = Product.objects.create(
+            name="product2",
+            price=200,
+            seller=self.userб
+        )
+        self.client.force_login(self.user)
+
+        self.cart = Cart.objects.create(customer=self.user)
+        self.cart_item1 = CartProduct.objects.create(
+            cart=self.cart,
+            product=self.product1,
+            quantity=1,
+        )
+        self.cart_item2 = CartProduct.objects.create(
+            cart=self.cart,
+            product=self.product2,
+            quantity=2,
+        )
+
+    def test_order_list_view(self):
+        Order.objects.create()
+        response = self.client.get(reverse("digital_store:order-list"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Order")
+
+    def test_order_create_view(self):
+        initial_order_count = Order.objects.count()
+        response = self.client.post(reverse("digital_store:order-list"))
+
+        self.assertEqual(response.status_code, 302)  # Redirect to order list
+
+        self.assertEqual(Order.objects.count(), initial_order_count + 1)
+
+        order = Order.objects.first()
+
+        self.assertEqual(OrderProduct.objects.filter(order=order).count(), 2)
+
+        self.assertFalse(CartProduct.objects.filter(cart=self.cart).exists())
