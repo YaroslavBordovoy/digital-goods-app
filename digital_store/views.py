@@ -140,12 +140,14 @@ class CartAddView(LoginRequiredMixin, generic.View):
         if action == "increase":
             cart_product.quantity += 1
             cart_product.save()
-        if action == "reduce":
+        elif action == "reduce":
             if cart_product.quantity > 1:
                 cart_product.quantity -= 1
                 cart_product.save()
             else:
                 cart_product.delete()
+        elif action == "delete":
+            cart_product.delete()
 
         return redirect("digital_store:cart-list")
 
