@@ -1,29 +1,49 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 
 {% block content %}
-  <h1>Category list</h1>
-  <a href="{% url 'digital_store:category-create' %}">Category create</a><br>
+  <div class="d-flex justify-content-between align-items-center col-12">
+    <h1>Product category list</h1>
+    {% if user.is_authenticated and perms.category.can_add_category%}
+      <a href="{% url 'digital_store:category-create' %}" class="btn btn-primary" type="button">Сreate category</a>
+    {% endif %}
+  </div>
+  {% include 'includes/search_form.html' %}
   {% if category_list %}
-    <ul>
       {% for category in category_list %}
-        <li>
-          <p><strong>{{ category.name }}</strong></p>
-          <p class="text-muted">{{ category.description }}</p>
-          <a
-              href="{% url 'digital_store:category-update' pk=category.pk %}"
-              class="btn btn-secondary"
-          >
-            Update
-          </a>
-          <a
-              href="{% url 'digital_store:category-delete' pk=category.pk %}"
-              class="btn btn-danger"
-          >
-            Delete
-          </a>
-        </li>
+        <div class="col-12">
+          <div class="card card-body border-0 shadow mb-4">
+            <h2 class="h5 mb-4">{{ category.name }}</h2>
+            <div class="d-flex align-items-center">
+              <div class="file-field">
+                <div class="d-md-block text-left">
+                  <div class="fw-normal text-dark mb-1">{{ category.description }}</div>
+                  {% if user.is_authenticated %}
+                  <div class="text-gray small">
+                    {% if perms.category.can_edit_category %}
+                      <a
+                          href="{% url 'digital_store:category-update' pk=category.pk %}"
+                          class="btn btn-secondary" type="button"
+                      >
+                        Update
+                      </a>
+                    {% endif %}
+                    {% if perms.category.can_delete_category %}
+                      <a
+                          href="{% url 'digital_store:category-delete' pk=category.pk %}"
+                          class="btn btn-danger" type="button"
+                      >
+                        Delete
+                      </a>
+                    {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       {% endfor %}
-    </ul>
   {% else %}
     <p>No categories have been created yet!</p>
   {% endif %}

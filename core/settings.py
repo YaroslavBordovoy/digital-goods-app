@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+from digital_store import context_processors
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -74,6 +76,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "digital_store.context_processors.cfg_assets_root",
             ],
         },
     },
@@ -155,3 +158,5 @@ EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 EMAIL_PORT = 587
 
 PASSWORD_RESET_TIMEOUT = 14400
+
+ASSETS_ROOT = "/static/assets"

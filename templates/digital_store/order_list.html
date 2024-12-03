@@ -1,22 +1,38 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 
 {% block content %}
-  <h1>Order list</h1>
+  <div class="d-flex">
+    <h1>Order list</h1>
+  </div>
+
+  {% include 'includes/search_form.html' %}
 
   {% if order_list %}
-    <ul>
-      {% for order in order_list %}
-        <li>
-          <p>{{ order.order_date }}</p>
-          <p>{{ order.status }}</p>
-          {% for product in order.products.all %}
-            <p>{{ product.name }} x {{ order_product.quantity }}</p>
-          {% endfor %}
-        </li>
-      {% endfor %}
-    </ul>
+    {% for order in order_list %}
+      <div class="col-12">
+        <div class="card card-body border-0 shadow mb-4">
+          <h2 class="h5 mb-4">{{ order.order_date }}</h2>
+          <div class="d-flex align-items-center">
+            <div class="file-field">
+              <div class="d-md-block text-left">
+              
+                <div class="fw-normal text-dark mb-1">{{ order.status }}</div>
+                {% for product in order.products.all %}
+                <div class="fw-normal text-dark mb-1">
+                  {{ product.name }} x {{ order_product.quantity }}
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
   {% else %}
     <p>No orders have been created yet!</p>
   {% endif %}
-  <a href="{% url 'digital_store:index' %}">Home page</a>
+    <a href="{% url 'digital_store:index' %}" class="btn btn-secondary" type="button">
+      Home page
+    </a>
 {% endblock %}

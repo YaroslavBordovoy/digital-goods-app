@@ -1,9 +1,43 @@
-{% extends "base.html" %}
+{#{% extends "base.html" %}#}
+{##}
+{#{% block content %}#}
+{#  <h2>Are you sure you want to delete "{{ product.name }}" product?</h2>#}
+{#	<form method="post" action="" novalidate>#}
+{#    {% csrf_token %}#}
+{#    <input type="submit" value="Delete" class="btn btn-danger">#}
+{#  </form>#}
+{#{% endblock %}#}
+
+{% extends "layouts/base.html" %}
 
 {% block content %}
-  <h2>Are you sure you want to delete "{{ product.name }}" product?</h2>
-	<form method="post" action="" novalidate>
-    {% csrf_token %}
-    <input type="submit" value="Delete" class="btn btn-danger">
-  </form>
+
+  <div class="col-12">
+    <div class="card card-body border-0 shadow mb-4">
+      <h3 class="h5 mb-4">Are you sure you want to delete "{{ product.name }}" product?</h3>
+      <div class="d-flex align-items-center">
+        <div class="file-field">
+          <div class="d-md-block text-left">
+
+            {% if user.is_authenticated and perms.can_delete_category %}
+              <div class="text-gray small d-flex gap-2">
+                <form method="post" action="" novalidate>
+                  {% csrf_token %}
+                  <input type="submit" value="Yes, delete" class="btn btn-sm btn-danger">
+                </form>
+                <form method="post" action="" novalidate>
+                  {% csrf_token %}
+                  <a class="btn btn-sm btn-secondary" href="{% url 'digital_store:product-detail' pk=product.pk %}">
+                    Return to previous page
+                  </a>
+                </form>
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}

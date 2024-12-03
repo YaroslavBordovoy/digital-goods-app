@@ -1,13 +1,67 @@
-{% extends 'base.html' %}
-{%  load crispy_forms_filters %}
-  
-{% block content %}  
-  <div class = "container">
-    <h2>Sign up</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form|crispy }}
-      <button type="submit">Sign up</button>
-    </form>
-  </div>
-{% endblock %}
+{#{% extends 'base.html' %}#}
+{#{%  load crispy_forms_filters %}#}
+{##}
+{#{% block content %}  #}
+{#  <div class = "container">#}
+{#    <h2>Sign up</h2>#}
+{#    <form method="post">#}
+{#      {% csrf_token %}#}
+{#      {{ form|crispy }}#}
+{#      <button type="submit">Sign up</button>#}
+{#    </form>#}
+{#  </div>#}
+{#{% endblock %}#}
+
+
+{% extends "layouts/base-fullscreen.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %} Sign UP {% endblock %}
+
+{% block content %}
+  <main>
+    <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center form-bg-image"
+             data-background-lg="{{ ASSETS_ROOT }}/img/illustrations/signin.svg">
+          <div class="col-12 d-flex align-items-center justify-content-center">
+            <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+              <div class="text-center text-md-center mb-4 mt-md-0">
+                <h1 class="mb-0 h3">Digital store - Sign UP</h1>
+                <br/>
+                <p>
+                  {% if msg %}
+                    {{ msg|safe }}
+                  {% else %}
+                    Add your credentials
+                  {% endif %}
+                </p>
+              </div>
+
+              {% if success %}
+                <div class="d-grid">
+                  <a href="{% url 'accounts:login' %}" class="btn btn-gray-800">Sign IN</a>
+                </div>
+              {% else %}
+                <form method="post" class="mt-4">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <div class="d-grid mt-4">
+                    <button type="submit" name="register" class="btn btn-gray-800">Sign UP</button>
+                  </div>
+                </form>
+                <br/>
+                <div class="d-flex justify-content-center align-items-center mt-4">
+                                <span class="fw-normal">
+                                    Already have an account? 
+                                    <a href="{% url 'accounts:login' %}" class="fw-bold">Sign IN</a>
+                                </span>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock content %}

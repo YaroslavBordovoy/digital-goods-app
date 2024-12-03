@@ -1,24 +1,198 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-  {% if user.is_authenticated %}
-    <form method="post" action="{% url 'accounts:logout' %}">
-    {% csrf_token %}
-    <input type="submit" value="Logout">
-  </form>
-  {% else %}
-    <a href="{% url 'accounts:login' %}">Login</a><br>
-  {% endif %}
-  <a href="{% url 'accounts:register' %}">Register</a><br>
-  
-  
-  <p>Customers: {{ customer_amount }}</p>
-  <p>Sellers: {{ seller_amount }}</p>
-  <p>Products: {{ product_amount }}</p>
-  
-  <a href="{% url 'digital_store:category-list' %}">Category list</a><br>
-  <a href="{% url 'digital_store:product-list' %}">Product list</a><br>
-  <a href="{% url 'digital_store:cart-list' %}">Cart</a><br>
-  <a href="{% url 'digital_store:order-list' %}">Orders</a><br>
-  
-{% endblock %}
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <!-- Primary Meta Tags -->
+  <title>
+    Digital store - Home page
+  </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="title" content="Volt - Free Bootstrap 5 Admin Dashboard">
+  <meta name="author" content="Themesberg">
+  <meta name="description"
+        content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
+  <meta name="keywords"
+        content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, themesberg, themesberg dashboard, themesberg admin dashboard"/>
+  <link rel="canonical" href="https://themesberg.com/product/admin-dashboard/volt-premium-bootstrap-5-dashboard">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://demo.themesberg.com/volt-pro">
+  <meta property="og:title" content="Volt - Free Bootstrap 5 Admin Dashboard">
+  <meta property="og:description"
+        content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
+  <meta property="og:image"
+        content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://demo.themesberg.com/volt-pro">
+  <meta property="twitter:title" content="Volt - Free Bootstrap 5 Admin Dashboard">
+  <meta property="twitter:description"
+        content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
+  <meta property="twitter:image"
+        content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ ASSETS_ROOT }}/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ ASSETS_ROOT }}/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ ASSETS_ROOT }}/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{ ASSETS_ROOT }}/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="{{ ASSETS_ROOT }}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Sweet Alert -->
+  <link type="text/css" href="{{ ASSETS_ROOT }}/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+
+  <!-- Notyf -->
+  <link type="text/css" href="{{ ASSETS_ROOT }}/vendor/notyf/notyf.min.css" rel="stylesheet">
+
+  <!-- Volt CSS -->
+  <link type="text/css" href="{{ ASSETS_ROOT }}/css/volt.css" rel="stylesheet">
+
+  <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+
+</head>
+<body>
+
+<header class="header-global">
+  <nav id="navbar-main" aria-label="Primary navigation"
+       class="navbar navbar-main navbar-expand-lg navbar-theme-primary pt-4 navbar-dark">
+    <div class="container position-relative">
+      <div class="navbar-collapse collapse me-auto" id="navbar_global">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <a href="/">
+                <img src="{{ ASSETS_ROOT }}/img/brand/light.svg" alt="Volt logo">
+              </a>
+            </div>
+            <div class="col-6 collapse-close">
+              <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global"
+                 aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item me-2">
+            <a href="{% url 'digital_store:category-list' %}" class="nav-link">Categories</a>
+          </li>
+          <li class="nav-item me-2">
+            <a href="{% url 'digital_store:product-list' %}" class="nav-link">All products</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center ms-auto">
+        {% if user.is_authenticated %}
+          <form method="post" action="{% url 'accounts:logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="Logout" class="btn btn-outline-white d-inline-flex align-items-center me-md-3">
+          </form>
+        {% else %}
+          <form method="post" action="{% url 'accounts:login' %}">
+          {% csrf_token %}
+          <input type="submit" value="Login" class="btn btn-outline-white d-inline-flex align-items-center me-md-3">
+        </form>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="bootstrap-big-icon d-none d-lg-block">
+            <svg xmlns="http://www.w3.org/2000/svg" width="700" height="622" class="d-block my-1" viewBox="0 0 118 94"
+                 role="img"><title>Bootstrap</title>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
+                    fill="currentColor"></path>
+            </svg>
+          </div>
+          <h1 class="fw-bolder">DIGITAL STORE</h1>
+          <h2 class="lead fw-normal text-muted mb-5">
+            Discover, create, and trade digital products in our Digital Store – the perfect platform for buyers and sellers to connect and share innovative content
+          </h2>
+          <div class="d-flex justify-content-center flex-column mb-6 mb-lg-5">
+            <a href="https://themesberg.com" target="_blank"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2">
+      <svg class="home-pattern" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+        <path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
+      </svg>
+    </figure>
+
+    <div class="container">
+      <div class="row justify-content-center mb-5 mb-lg-6">
+        <div class="col-6 col-md-3 text-center mb-4">
+          <div class="icon icon-shape bg-white shadow-lg rounded mb-4">
+            <svg class="icon icon-md text-secondary" fill="currentColor" viewBox="0 0 20 20"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                  d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
+            </svg>
+          </div>
+          <h3 class="fw-bolde">{{ customer_amount }}</h3>
+          <p class="text-gray">number of buyers</p>
+        </div>
+        <div class="col-6 col-md-3 text-center mb-4">
+          <div class="icon icon-shape bg-white shadow-lg rounded mb-4">
+            <svg class="icon icon-md text-secondary" fill="currentColor" viewBox="0 0 20 20"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                  d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+            </svg>
+          </div>
+          <h3 class="fw-bolder">{{ seller_amount }}</h3>
+          <p class="text-gray">number of sellers</p>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <div class="icon icon-shape bg-white shadow-lg rounded mb-4">
+            <svg class="icon icon-md text-secondary" fill="currentColor" viewBox="0 0 20 20"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                  d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
+            </svg>
+          </div>
+          <h3 class="fw-bolder">{{ product_amount }}</h3>
+          <p class="text-gray">number of sellers</p>
+        </div>
+      </div>
+    </div>
+
+
+        {#{% extends "base.html" %}#}
+        {##}
+        {#{% block content %}#}
+        {#  {% if user.is_authenticated %}#}
+{#            <form method="post" action="{% url 'accounts:logout' %}">#}
+{#            {% csrf_token %}#}
+{#            <input type="submit" value="Logout">#}
+{#            </form>#}
+        {#  {% else %}#}
+        {#    <a href="{% url 'accounts:login' %}">Login</a><br>#}
+        {#  {% endif %}#}
+        {#  <a href="{% url 'accounts:register' %}">Register</a><br>#}
+        {#  #}
+        {#  #}
+        {#  <p>Customers: {{ customer_amount }}</p>#}
+        {#  <p>Sellers: {{ seller_amount }}</p>#}
+        {#  <p>Products: {{ product_amount }}</p>#}
+        {#  #}
+        {#  <a href="{% url 'digital_store:category-list' %}">Category list</a><br>#}
+        {#  <a href="{% url 'digital_store:product-list' %}">Product list</a><br>#}
+        {#  <a href="{% url 'digital_store:cart-list' %}">Cart</a><br>#}
+        {#  <a href="{% url 'digital_store:order-list' %}">Orders</a><br>#}
+        {#  #}
+        {#{% endblock %}#}

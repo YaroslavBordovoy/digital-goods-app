@@ -1,31 +1,78 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 
 {% block content %}
-  <h1>Product list</h1>
-  <a href="{% url 'digital_store:product-create' %}">Product create</a><br>
-  {% if product_list %}
-    <ul>
-      {% for product in product_list %}
-        <li>
-          <p><strong>{{ product.name }}</strong></p>
-          <p><strong>Price:</strong> {{ product.price }}</p>
+  <div class="d-flex justify-content-between align-items-center col-12">
+    <h1>Product list</h1>
+    {% if user.is_authenticated and perms.category.can_add_category %}
+      <a href="{% url 'digital_store:product-create' %}" class="btn btn-primary" type="button">Create product</a>
+    {% endif %}
+  </div>
+  {% include 'includes/search_form.html' %}
 
-          {% if product.category.all %}
-            <p class="text-muted">
-              Category:
-              {% for category in product.category.all %}
-                {{ category.name }} {% if not forloop.last %}, {% endif %}
+  <div class="row g-4">
+    {% if product_list %}
+      {% for product in product_list %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card shadow border-0 text-center p-0" style="max-width: 18rem;">
+            <div class="profile-cover rounded-top" data-background="{{ ASSETS_ROOT }}/img/profile-cover.jpg"></div>
+            <div class="card-body pb-5">
+              <h4 class="h5">
+                {{ product.name }}
+              </h4>
+              <h5 class="fw-normal">
+                {{ product.price }}
+              </h5>
+              {% if product.category.all %}
+                <p class="text-gray mb-4">
+                  Category:
+                  {% for category in product.category.all %}
+                    {{ category.name }} {% if not forloop.last %}, {% endif %}
+                  {% endfor %}
                 </p>
-              {% endfor %}
-          {% else %}
-            <p class="text-muted">No categories assigned</p>
-          {% endif %}
-          
-          <a href="{% url 'digital_store:product-detail' pk=product.pk %}">Detail</a>
-        </li>
+              {% else %}
+                <p class="text-muted">No categories assigned</p>
+              {% endif %}
+              <a class="btn btn-sm btn-secondary" href="{% url 'digital_store:product-detail' pk=product.pk %}">
+                More information
+              </a>
+            </div>
+          </div>
+        </div>
       {% endfor %}
-    </ul>
-  {% else %}
-    <p>No products have been created yet!</p>
-  {% endif %}
+    {% else %}
+      <p>No products available!</p>
+    {% endif %}
+  </div>
 {% endblock %}
+
+{#{% extends "base.html" %}#}
+{##}
+{#{% block content %}#}
+{#  <h1>Product list</h1>#}
+{#  <a href="{% url 'digital_store:product-create' %}">Product create</a><br>#}
+{#  {% if product_list %}#}
+{#    <ul>#}
+{#      {% for product in product_list %}#}
+{#        <li>#}
+{#          <p><strong>{{ product.name }}</strong></p>#}
+{#          <p><strong>Price:</strong> {{ product.price }}</p>#}
+{##}
+{#          {% if product.category.all %}#}
+{#            <p class="text-muted">#}
+{#              Category:#}
+{#              {% for category in product.category.all %}#}
+{#                {{ category.name }} {% if not forloop.last %}, {% endif %}#}
+{#                </p>#}
+{#              {% endfor %}#}
+{#          {% else %}#}
+{#            <p class="text-muted">No categories assigned</p>#}
+{#          {% endif %}#}
+{##}
+{#          <a href="{% url 'digital_store:product-detail' pk=product.pk %}">Detail</a>#}
+{#        </li>#}
+{#      {% endfor %}#}
+{#    </ul>#}
+{#  {% else %}#}
+{#    <p>No products have been created yet!</p>#}
+{#  {% endif %}#}
+{#{% endblock %}#}
