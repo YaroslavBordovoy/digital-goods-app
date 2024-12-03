@@ -111,7 +111,7 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.Del
     success_url = reverse_lazy("digital_store:product-list")
 
 
-class CartView(generic.TemplateView):
+class CartView(LoginRequiredMixin, generic.TemplateView):
     template_name = "digital_store/cart_view.html"
 
     def get_context_data(self, **kwargs):

@@ -9,52 +9,19 @@
   </title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="title" content="Volt - Free Bootstrap 5 Admin Dashboard">
-  <meta name="author" content="Themesberg">
-  <meta name="description"
-        content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
-  <meta name="keywords"
-        content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, themesberg, themesberg dashboard, themesberg admin dashboard"/>
-  <link rel="canonical" href="https://themesberg.com/product/admin-dashboard/volt-premium-bootstrap-5-dashboard">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://demo.themesberg.com/volt-pro">
-  <meta property="og:title" content="Volt - Free Bootstrap 5 Admin Dashboard">
-  <meta property="og:description"
-        content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
-  <meta property="og:image"
-        content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://demo.themesberg.com/volt-pro">
-  <meta property="twitter:title" content="Volt - Free Bootstrap 5 Admin Dashboard">
-  <meta property="twitter:description"
-        content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
-  <meta property="twitter:image"
-        content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
 
   <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="120x120" href="{{ ASSETS_ROOT }}/img/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ ASSETS_ROOT }}/img/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ ASSETS_ROOT }}/img/favicon/favicon-16x16.png">
   <link rel="manifest" href="{{ ASSETS_ROOT }}/img/favicon/site.webmanifest">
   <link rel="mask-icon" href="{{ ASSETS_ROOT }}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="theme-color" content="#ffffff">
+  }
 
   <!-- Sweet Alert -->
   <link type="text/css" href="{{ ASSETS_ROOT }}/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 
-  <!-- Notyf -->
-  <link type="text/css" href="{{ ASSETS_ROOT }}/vendor/notyf/notyf.min.css" rel="stylesheet">
-
   <!-- Volt CSS -->
   <link type="text/css" href="{{ ASSETS_ROOT }}/css/volt.css" rel="stylesheet">
-
-  <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
-
 </head>
 <body>
 
@@ -83,6 +50,12 @@
           <li class="nav-item me-2">
             <a href="{% url 'digital_store:product-list' %}" class="nav-link">All products</a>
           </li>
+          <li class="nav-item me-2">
+            <a href="{% url 'digital_store:order-list' %}" class="nav-link">Order history</a>
+          </li>
+          <li class="nav-item me-2">
+            <a href="{% url 'digital_store:cart-list' %}" class="nav-link">Cart</a>
+          </li>
         </ul>
       </div>
       <div class="d-flex align-items-center ms-auto">
@@ -93,9 +66,9 @@
           </form>
         {% else %}
           <form method="post" action="{% url 'accounts:login' %}">
-          {% csrf_token %}
-          <input type="submit" value="Login" class="btn btn-outline-white d-inline-flex align-items-center me-md-3">
-        </form>
+            {% csrf_token %}
+            <input type="submit" value="Login" class="btn btn-outline-white d-inline-flex align-items-center me-md-3">
+          </form>
         {% endif %}
       </div>
     </div>
@@ -109,17 +82,10 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <div class="bootstrap-big-icon d-none d-lg-block">
-            <svg xmlns="http://www.w3.org/2000/svg" width="700" height="622" class="d-block my-1" viewBox="0 0 118 94"
-                 role="img"><title>Bootstrap</title>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
-                    fill="currentColor"></path>
-            </svg>
-          </div>
           <h1 class="fw-bolder">DIGITAL STORE</h1>
           <h2 class="lead fw-normal text-muted mb-5">
-            Discover, create, and trade digital products in our Digital Store – the perfect platform for buyers and sellers to connect and share innovative content
+            Discover, create, and trade digital products in our Digital Store – the perfect platform for buyers and
+            sellers to connect and share innovative content
           </h2>
           <div class="d-flex justify-content-center flex-column mb-6 mb-lg-5">
             <a href="https://themesberg.com" target="_blank"></a>
@@ -170,29 +136,5 @@
         </div>
       </div>
     </div>
-
-
-        {#{% extends "base.html" %}#}
-        {##}
-        {#{% block content %}#}
-        {#  {% if user.is_authenticated %}#}
-{#            <form method="post" action="{% url 'accounts:logout' %}">#}
-{#            {% csrf_token %}#}
-{#            <input type="submit" value="Logout">#}
-{#            </form>#}
-        {#  {% else %}#}
-        {#    <a href="{% url 'accounts:login' %}">Login</a><br>#}
-        {#  {% endif %}#}
-        {#  <a href="{% url 'accounts:register' %}">Register</a><br>#}
-        {#  #}
-        {#  #}
-        {#  <p>Customers: {{ customer_amount }}</p>#}
-        {#  <p>Sellers: {{ seller_amount }}</p>#}
-        {#  <p>Products: {{ product_amount }}</p>#}
-        {#  #}
-        {#  <a href="{% url 'digital_store:category-list' %}">Category list</a><br>#}
-        {#  <a href="{% url 'digital_store:product-list' %}">Product list</a><br>#}
-        {#  <a href="{% url 'digital_store:cart-list' %}">Cart</a><br>#}
-        {#  <a href="{% url 'digital_store:order-list' %}">Orders</a><br>#}
-        {#  #}
-        {#{% endblock %}#}
+  </section>
+</main>

@@ -1,11 +1,18 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 {% load crispy_forms_filters %}
 
+{% block title %} {{ object|yesno:"Update,Create" }} product {% endblock %}
+
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create new" }} product</h1>
+  <div class="d-flex justify-content-between align-items-center col-12">
+    <h1>{{ object|yesno:"Update,Create new" }} product</h1>
+  </div>
+
   <form method="post" action="" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
+    <br>
     <input type="submit" value="Submit" class="btn btn-primary">
   </form>
+  
 {% endblock %}

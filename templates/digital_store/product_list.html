@@ -1,5 +1,7 @@
 {% extends "layouts/base.html" %}
 
+{% block title %} Products {% endblock %}
+
 {% block content %}
   <div class="d-flex justify-content-between align-items-center col-12">
     <h1>Product list</h1>
@@ -7,7 +9,8 @@
       <a href="{% url 'digital_store:product-create' %}" class="btn btn-primary" type="button">Create product</a>
     {% endif %}
   </div>
-  {% include 'includes/search_form.html' %}
+  
+  {% include "includes/search_form.html" %}
 
   <div class="row g-4">
     {% if product_list %}
@@ -43,36 +46,11 @@
       <p>No products available!</p>
     {% endif %}
   </div>
+  
+  {% block pagination %}
+    {% include "includes/pagination.html" %}
+  {% endblock %}
+  
+  {% include "includes/footer.html" %}
+  
 {% endblock %}
-
-{#{% extends "base.html" %}#}
-{##}
-{#{% block content %}#}
-{#  <h1>Product list</h1>#}
-{#  <a href="{% url 'digital_store:product-create' %}">Product create</a><br>#}
-{#  {% if product_list %}#}
-{#    <ul>#}
-{#      {% for product in product_list %}#}
-{#        <li>#}
-{#          <p><strong>{{ product.name }}</strong></p>#}
-{#          <p><strong>Price:</strong> {{ product.price }}</p>#}
-{##}
-{#          {% if product.category.all %}#}
-{#            <p class="text-muted">#}
-{#              Category:#}
-{#              {% for category in product.category.all %}#}
-{#                {{ category.name }} {% if not forloop.last %}, {% endif %}#}
-{#                </p>#}
-{#              {% endfor %}#}
-{#          {% else %}#}
-{#            <p class="text-muted">No categories assigned</p>#}
-{#          {% endif %}#}
-{##}
-{#          <a href="{% url 'digital_store:product-detail' pk=product.pk %}">Detail</a>#}
-{#        </li>#}
-{#      {% endfor %}#}
-{#    </ul>#}
-{#  {% else %}#}
-{#    <p>No products have been created yet!</p>#}
-{#  {% endif %}#}
-{#{% endblock %}#}

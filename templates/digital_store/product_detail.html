@@ -1,11 +1,15 @@
 {% extends "layouts/base.html" %}
 
+{% block title %} Product detail {% endblock %}
+
 {% block content %}
 
   <div class="col-12">
     <div class="card card-body border-0 shadow mb-4">
+    
       <h3 class="h5 mb-4">Product name: {{ product.name }}</h3>
       <div class="d-flex align-items-center">
+      
         <div class="file-field">
           <div class="d-md-block text-left">
             {% if product.description %}
