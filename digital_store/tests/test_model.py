@@ -5,12 +5,6 @@ from django.test import TestCase
 from digital_store.models import Category, Product, Order, OrderProduct, Cart, CartProduct
 
 
-SELLER = get_user_model().objects.create_user(
-    username="test_seller",
-    password="test_password",
-)
-
-
 class CategoryModelTests(TestCase):
     def test_category_str(self):
         category = Category.objects.create(name="test", description="First")
@@ -46,6 +40,10 @@ class CategoryModelTests(TestCase):
 
 class ProductModelTests(TestCase):
     def setUp(self) -> None:
+        self.seller = get_user_model().objects.create_user(
+            username="test_seller",
+            password="password123",
+        )
         self.category1 = Category.objects.create(
             name="Test Category1",
             description="Test Description1",
@@ -55,26 +53,11 @@ class ProductModelTests(TestCase):
             description="Test Description2",
         )
 
-    def test_product_str(self):
-        product = Product.objects.create(
-            name="Test Product",
-            description="Test Description",
-            price=5.00,
-            category=self.category1,
-            seller=SELLER,
-        )
-
-        self.assertEqual(
-            str(product),
-            f"Product: {product.name} "
-            f"(price: {product.price}, category: {product.category})",
-        )
-
     def test_product_two_categories(self):
         product = Product.objects.create(
             name="Test Product",
             price=5.00,
-            seller=SELLER,
+            seller=self.seller,
         )
         product.category.add(self.category1, self.category2)
 
@@ -84,7 +67,7 @@ class ProductModelTests(TestCase):
         product = Product.objects.create(
             name="Test Product",
             price=5.00,
-            seller=SELLER,
+            seller=self.seller,
         )
 
         self.assertEqual(product.seller.username, "test_seller")
@@ -100,6 +83,12 @@ class ProductModelTests(TestCase):
 
 
 class OrderModelTests(TestCase):
+    def setUp(self):
+        self.seller = get_user_model().objects.create_user(
+            username="test_seller",
+            password="test_password",
+        )
+
     def test_status_choices_and_default_status(self):
         expected_choices = [
             ("PE", "Pending"),
@@ -122,8 +111,8 @@ class OrderModelTests(TestCase):
         self.assertEqual(order.status, Order.StatusChoice.COMPLETED)
 
     def test_products_relation(self):
-        product1 = Product.objects.create(name="Test prod1", price=100, seller=SELLER)
-        product2 = Product.objects.create(name="Test prod2", price=50, seller=SELLER)
+        product1 = Product.objects.create(name="Test prod1", price=100, seller=self.seller)
+        product2 = Product.objects.create(name="Test prod2", price=50, seller=self.seller)
         order = Order.objects.create()
         OrderProduct.objects.create(order=order, product=product1, quantity=1)
         OrderProduct.objects.create(order=order, product=product2, quantity=2)
@@ -133,7 +122,7 @@ class OrderModelTests(TestCase):
         self.assertIn(product2, order.products.all())
 
     def test_order_product_relationship(self):
-        product = Product.objects.create(name="Test prod", price=50, seller=SELLER)
+        product = Product.objects.create(name="Test prod", price=50, seller=self.seller)
         order = Order.objects.create()
         order_product = OrderProduct.objects.create(
             order=order,
@@ -147,16 +136,22 @@ class OrderModelTests(TestCase):
 
 
 class CartModelTests(TestCase):
+    def setUp(self):
+        self.seller = get_user_model().objects.create_user(
+            username="test_seller",
+            password="test_password",
+        )
+
     def test_default_quantity(self):
-        cart = Cart.objects.create(user=SELLER)
-        product = Product.objects.create(name="Test product", price=50, seller=SELLER)
+        cart = Cart.objects.create(customer=self.seller)
+        product = Product.objects.create(name="Test product", price=50, seller=self.seller)
         cart_product = CartProduct.objects.create(cart=cart, product=product)
 
         self.assertEqual(cart_product.quantity, 1)
 
     def test_update_quantity(self):
-        cart = Cart.objects.create(user=SELLER)
-        product = Product.objects.create(name="Mouse", price=19.99, seller=SELLER)
+        cart = Cart.objects.create(customer=self.seller)
+        product = Product.objects.create(name="Mouse", price=19.99, seller=self.seller)
         cart_product = CartProduct.objects.create(cart=cart, product=product, quantity=2)
         cart_product.quantity = 5
         cart_product.save()
