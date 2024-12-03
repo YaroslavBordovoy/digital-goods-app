@@ -72,7 +72,7 @@ class CategoryDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.De
 class ProductListView(generic.ListView):
     model = Product
     queryset = Product.objects.select_related("seller").prefetch_related("category")
-    paginate_by = 9
+    paginate_by = 12
 
 
 class ProductDetailView(generic.DetailView):

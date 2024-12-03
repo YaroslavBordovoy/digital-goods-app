@@ -148,8 +148,17 @@ class OrderModelTests(TestCase):
 
 class CartModelTests(TestCase):
     def test_default_quantity(self):
-        cart = Cart.objects.create(user=seller)
+        cart = Cart.objects.create(user=SELLER)
         product = Product.objects.create(name="Test product", price=50, seller=SELLER)
         cart_product = CartProduct.objects.create(cart=cart, product=product)
 
         self.assertEqual(cart_product.quantity, 1)
+
+    def test_update_quantity(self):
+        cart = Cart.objects.create(user=SELLER)
+        product = Product.objects.create(name="Mouse", price=19.99, seller=SELLER)
+        cart_product = CartProduct.objects.create(cart=cart, product=product, quantity=2)
+        cart_product.quantity = 5
+        cart_product.save()
+
+        self.assertEqual(cart_product.quantity, 5)
