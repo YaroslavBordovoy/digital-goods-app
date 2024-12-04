@@ -4,6 +4,14 @@
 
 This project is a small digital online store. The set of actions varies depending on your role selected during registration. Buyers are limited to viewing and ordering goods only. Sellers can additionally create goods and categories of goods.
 
+Link on live page: https://digital-goods-app.onrender.com/
+
+User for testing: 
+```
+login: testuser
+password: testuser12345
+```
+
 At the moment, the following has been implemented:
 
 - ✅**Home page** → has a navigation bar at the top, as well as a button for login/logout;
@@ -57,3 +65,6 @@ python manage.py test
 - Improve the order history, making it more informative
 - Add additional tests
 - ⚙️ (Potentially) Add functionality for processing orders by sellers
+
+# Demo
+![img.png](demo.png)
