@@ -67,6 +67,12 @@ class Order(models.Model):
         choices=StatusChoice,
         default=StatusChoice.PENDING
     )
+    customer = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="orders",
+        default=1,
+    )
 
 
 class Cart(models.Model):

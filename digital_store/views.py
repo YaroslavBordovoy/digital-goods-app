@@ -1,9 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpRequest
+from django.shortcuts import get_object_or_404, redirect
 from django.views import generic
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.contrib import messages
 
 from digital_store.forms import ProductCreateForm
@@ -155,13 +155,16 @@ class CartAddView(LoginRequiredMixin, generic.View):
 class OrderListView(LoginRequiredMixin, generic.ListView):
     model = Order
 
+    def get_queryset(self):
+        return Order.objects.filter(customer=self.request.user)
+
 
 class OrderCreateView(LoginRequiredMixin, generic.View):
     def post(self, request: HttpRequest, *args, **kwargs):
         cart = Cart.objects.get(customer=self.request.user)
 
         if cart.cart_items.exists():
-            order = Order.objects.create()
+            order = Order.objects.create(customer=self.request.user)
             order_products = [
                 OrderProduct(
                     product=item.product,
