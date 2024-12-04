@@ -13,7 +13,7 @@ def add_products():
         Product(
             name=f"product_{i + 1}",
             description=f"Description of product #{i + 1}",
-            price=random.randint(150, 1000),
+            price=round(random.uniform(100.00, 999.99), 2),
             seller=random.choice(sellers),
         )
         for i in range(37)
