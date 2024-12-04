@@ -6,18 +6,19 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib import messages
 
-from digital_store.forms import ProductCreateForm
+from digital_store.forms import ProductCreateForm, ProductCategorySearchForm
 from digital_store.models import Product, Category, Cart, Order, CartProduct, OrderProduct
 
 User = get_user_model()
 SELLER_PERMISSIONS = [
-        "category.can_add_category",
-        "category.can_edit_category",
-        "category.can_delete_category",
-        "product.can_add_product",
-        "product.can_edit_product",
-        "product.can_delete_product",
-    ]
+    "category.can_add_category",
+    "category.can_edit_category",
+    "category.can_delete_category",
+    "product.can_add_product",
+    "product.can_edit_product",
+    "product.can_delete_product",
+]
+
 
 class IndexView(generic.TemplateView):
     template_name = "digital_store/index.html"
@@ -33,6 +34,26 @@ class IndexView(generic.TemplateView):
 
 class CategoryListView(generic.ListView):
     model = Category
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(CategoryListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        context["search_form"] = ProductCategorySearchForm(
+            initial={"name": name}
+        )
+
+        return context
+
+    def get_queryset(self):
+        queryset = Category.objects.all()
+        form = ProductCategorySearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+
+        return queryset
 
 
 class CategoryCreateView(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
@@ -71,8 +92,27 @@ class CategoryDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.De
 
 class ProductListView(generic.ListView):
     model = Product
-    queryset = Product.objects.select_related("seller").prefetch_related("category")
     paginate_by = 12
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ProductListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        context["search_form"] = ProductCategorySearchForm(
+            initial={"name": name}
+        )
+
+        return context
+
+    def get_queryset(self):
+        queryset = Product.objects.select_related("seller").prefetch_related("category")
+        form = ProductCategorySearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+
+        return queryset
 
 
 class ProductDetailView(generic.DetailView):

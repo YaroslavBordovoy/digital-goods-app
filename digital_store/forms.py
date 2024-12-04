@@ -13,3 +13,12 @@ class ProductCreateForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ("name", "description", "price", "category", "image",)
+
+
+class ProductCategorySearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by name"})
+    )
