@@ -1,0 +1,1654 @@
+[
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "K9UTMzGe$h",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "njohns",
+        "first_name": "Matthew",
+        "last_name": "Irwin",
+        "email": "pamela75@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+        "password": "P24+FT3m@v",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "stephen28",
+        "first_name": "Sandra",
+        "last_name": "Obrien",
+        "email": "john57@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+        "password": "+*Q2$T%zok",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "otaylor",
+        "first_name": "Michael",
+        "last_name": "Curtis",
+        "email": "vanessa16@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+        "password": "$AK&(gws0_",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "abowers",
+        "first_name": "Ryan",
+        "last_name": "Ramirez",
+        "email": "roger62@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+        "password": "%*!1#VJp1u",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "evelasquez",
+        "first_name": "Christian",
+        "last_name": "Anthony",
+        "email": "elaine85@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 6,
+    "fields": {
+        "password": "e()7V%3nTS",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "nellis",
+        "first_name": "Eric",
+        "last_name": "Ruiz",
+        "email": "williamharris@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 7,
+    "fields": {
+        "password": "IT67OKyah^",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "smckee",
+        "first_name": "Ashley",
+        "last_name": "Houston",
+        "email": "whitneycarter@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 8,
+    "fields": {
+        "password": "b&1YT_4osT",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "gilbertmichael",
+        "first_name": "Elizabeth",
+        "last_name": "Serrano",
+        "email": "jessica59@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 9,
+    "fields": {
+        "password": "*uiKnzjB43",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "gonzalezdebra",
+        "first_name": "Amy",
+        "last_name": "Hendricks",
+        "email": "david15@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 10,
+    "fields": {
+        "password": "%aEUxJAQ(5",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "brandyrichards",
+        "first_name": "Michael",
+        "last_name": "Smith",
+        "email": "esteele@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 11,
+    "fields": {
+        "password": "(6j7g(Qzlz",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "bondmichelle",
+        "first_name": "Tyler",
+        "last_name": "Mann",
+        "email": "psanchez@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 12,
+    "fields": {
+        "password": "t(1SpnwS1^",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "donald13",
+        "first_name": "Jade",
+        "last_name": "Brooks",
+        "email": "jasonkaufman@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 13,
+    "fields": {
+        "password": "G1B_oFPz$M",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "taylorjoseph",
+        "first_name": "Steven",
+        "last_name": "Rowe",
+        "email": "smithbrandon@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 14,
+    "fields": {
+        "password": "C@7iMTBfGw",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "cfitzgerald",
+        "first_name": "Caitlin",
+        "last_name": "Snyder",
+        "email": "jacksonkathy@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 15,
+    "fields": {
+        "password": "x7BSdx7k_9",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "vanessa42",
+        "first_name": "Chad",
+        "last_name": "Scott",
+        "email": "macdonaldwhitney@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 16,
+    "fields": {
+        "password": "7%%0V+sk!Z",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "garciatimothy",
+        "first_name": "Blake",
+        "last_name": "Sanders",
+        "email": "hkelly@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 17,
+    "fields": {
+        "password": "1*t)rSpH$p",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "edward27",
+        "first_name": "Jared",
+        "last_name": "Spencer",
+        "email": "austinjennifer@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 18,
+    "fields": {
+        "password": "&lOvZoxo2f",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "jeffery05",
+        "first_name": "Robin",
+        "last_name": "Gray",
+        "email": "elizabethfoley@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 19,
+    "fields": {
+        "password": "(B1!JS&i7@",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "tashacrosby",
+        "first_name": "Julie",
+        "last_name": "Romero",
+        "email": "arivas@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 20,
+    "fields": {
+        "password": "F+JtT9IyTh",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sbradshaw",
+        "first_name": "Bradley",
+        "last_name": "Lamb",
+        "email": "hburke@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 21,
+    "fields": {
+        "password": "&5#UIBpgUZ",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "stephanie48",
+        "first_name": "Jennifer",
+        "last_name": "Davis",
+        "email": "lesliemartinez@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 22,
+    "fields": {
+        "password": "1l6z9E9g!9",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "christopher13",
+        "first_name": "Anthony",
+        "last_name": "Burke",
+        "email": "sherri28@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 23,
+    "fields": {
+        "password": "*4cPYbV19z",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "starkkaren",
+        "first_name": "Stephanie",
+        "last_name": "Mccall",
+        "email": "tbennett@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 24,
+    "fields": {
+        "password": "!n2#J0jQ*#",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "tiffanygarner",
+        "first_name": "Pamela",
+        "last_name": "Barrera",
+        "email": "timothyboyd@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 25,
+    "fields": {
+        "password": "+A25fwTd&#",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "garciastacy",
+        "first_name": "Shelby",
+        "last_name": "Santos",
+        "email": "craigsnyder@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 26,
+    "fields": {
+        "password": "%27HysjQVM",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "butlercatherine",
+        "first_name": "Hannah",
+        "last_name": "Sanders",
+        "email": "jordan79@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 27,
+    "fields": {
+        "password": "xR7xWl4g)$",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "moorekristopher",
+        "first_name": "Peter",
+        "last_name": "Ford",
+        "email": "bmorrison@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 28,
+    "fields": {
+        "password": "TP7Ehp+H%&",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "cindybaker",
+        "first_name": "Diana",
+        "last_name": "Moore",
+        "email": "heather36@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.944Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 29,
+    "fields": {
+        "password": "t&81QV@zVJ",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "cruzisaac",
+        "first_name": "Lisa",
+        "last_name": "Frazier",
+        "email": "stephanie78@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 30,
+    "fields": {
+        "password": "+3XoSrlJ&P",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "georgegriffin",
+        "first_name": "Ricardo",
+        "last_name": "Conway",
+        "email": "nadams@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 31,
+    "fields": {
+        "password": ")z2yRBuu%5",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "kaitlinsanchez",
+        "first_name": "John",
+        "last_name": "Hansen",
+        "email": "kwarner@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 32,
+    "fields": {
+        "password": ")6OuEPBs_6",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sday",
+        "first_name": "Shelby",
+        "last_name": "Byrd",
+        "email": "uevans@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 33,
+    "fields": {
+        "password": "ee7b8QPpK@",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "danielmason",
+        "first_name": "Colleen",
+        "last_name": "Miller",
+        "email": "victoriaharding@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 34,
+    "fields": {
+        "password": ")_R0A0Ruk#",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "pamela40",
+        "first_name": "Andrea",
+        "last_name": "Hansen",
+        "email": "wilsonpatricia@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 35,
+    "fields": {
+        "password": "FZCo4Mp72_",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "bwoodard",
+        "first_name": "Jay",
+        "last_name": "Smith",
+        "email": "gregory62@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 36,
+    "fields": {
+        "password": "u_uxZh0roT",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "tonymiller",
+        "first_name": "Barbara",
+        "last_name": "Anderson",
+        "email": "jesus48@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 37,
+    "fields": {
+        "password": "u71d_PEd#5",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "joliver",
+        "first_name": "Mary",
+        "last_name": "Jefferson",
+        "email": "micheledickson@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 38,
+    "fields": {
+        "password": "^lRa7XTbXc",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "mercervictoria",
+        "first_name": "Adam",
+        "last_name": "Hanson",
+        "email": "kharris@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 39,
+    "fields": {
+        "password": "H$GH^W_x_9",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "chelsea95",
+        "first_name": "Sara",
+        "last_name": "Kaiser",
+        "email": "nicholas85@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 40,
+    "fields": {
+        "password": "!7a7qbJzB%",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "clarkdawn",
+        "first_name": "Mackenzie",
+        "last_name": "Sampson",
+        "email": "johnsontyler@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 41,
+    "fields": {
+        "password": "@WQZxsjn^3",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "vjennings",
+        "first_name": "Robert",
+        "last_name": "Casey",
+        "email": "megan19@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 42,
+    "fields": {
+        "password": "Oo_E6Oqc^d",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "hcarson",
+        "first_name": "David",
+        "last_name": "Stuart",
+        "email": "myersjessica@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 43,
+    "fields": {
+        "password": "AMVq5Y!a!Q",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "norma27",
+        "first_name": "Ronald",
+        "last_name": "Willis",
+        "email": "rcosta@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 44,
+    "fields": {
+        "password": "@!bB15gjdQ",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "davidkim",
+        "first_name": "Joseph",
+        "last_name": "Scott",
+        "email": "angela39@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 45,
+    "fields": {
+        "password": "@v9WuTOcss",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "teresasosa",
+        "first_name": "Kimberly",
+        "last_name": "Moore",
+        "email": "andre24@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 46,
+    "fields": {
+        "password": "$IzHnVn_78",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "joshuasmith",
+        "first_name": "James",
+        "last_name": "Stevens",
+        "email": "tinamartinez@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 47,
+    "fields": {
+        "password": ")FcnNyxuA8",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "bartonlauren",
+        "first_name": "Roger",
+        "last_name": "Davis",
+        "email": "paularose@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 48,
+    "fields": {
+        "password": "0zIb5202!8",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "pamela67",
+        "first_name": "John",
+        "last_name": "Patrick",
+        "email": "george77@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 49,
+    "fields": {
+        "password": "4MIKAPxh&q",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "megan13",
+        "first_name": "Jessica",
+        "last_name": "Cox",
+        "email": "xnguyen@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 50,
+    "fields": {
+        "password": "(0Dt69bo4B",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "rileyjennifer",
+        "first_name": "Samantha",
+        "last_name": "Little",
+        "email": "johnsonjessica@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 51,
+    "fields": {
+        "password": "WZo$I6Wgfs",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "wrightkevin",
+        "first_name": "Jessica",
+        "last_name": "Freeman",
+        "email": "shelby53@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:52:24.960Z",
+        "role": "CS",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 52,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$m3AxKClmmlQ06CfUP5wLBJ$4Jni6bu+aA2qLR3y1dU8RtIcM4xsesQoVf78bozVan8=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-12-04T11:53:41.841Z",
+        "role": "SL",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 1,
+    "fields": {
+        "name": "product_1",
+        "description": "Description of product #1",
+        "price": "951.85",
+        "seller": 33,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            1
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 2,
+    "fields": {
+        "name": "product_2",
+        "description": "Description of product #2",
+        "price": "699.25",
+        "seller": 47,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            4
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 3,
+    "fields": {
+        "name": "product_3",
+        "description": "Description of product #3",
+        "price": "757.66",
+        "seller": 15,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            8
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 4,
+    "fields": {
+        "name": "product_4",
+        "description": "Description of product #4",
+        "price": "717.48",
+        "seller": 35,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            3
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 5,
+    "fields": {
+        "name": "product_5",
+        "description": "Description of product #5",
+        "price": "178.85",
+        "seller": 33,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            1
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 6,
+    "fields": {
+        "name": "product_6",
+        "description": "Description of product #6",
+        "price": "455.52",
+        "seller": 35,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            6
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 7,
+    "fields": {
+        "name": "product_7",
+        "description": "Description of product #7",
+        "price": "735.86",
+        "seller": 15,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            3
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 8,
+    "fields": {
+        "name": "product_8",
+        "description": "Description of product #8",
+        "price": "456.56",
+        "seller": 37,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            6
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 9,
+    "fields": {
+        "name": "product_9",
+        "description": "Description of product #9",
+        "price": "233.68",
+        "seller": 47,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            2
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 10,
+    "fields": {
+        "name": "product_10",
+        "description": "Description of product #10",
+        "price": "388.50",
+        "seller": 24,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            1
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 11,
+    "fields": {
+        "name": "product_11",
+        "description": "Description of product #11",
+        "price": "349.01",
+        "seller": 42,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            9
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 12,
+    "fields": {
+        "name": "product_12",
+        "description": "Description of product #12",
+        "price": "901.99",
+        "seller": 46,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            8
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 13,
+    "fields": {
+        "name": "product_13",
+        "description": "Description of product #13",
+        "price": "811.26",
+        "seller": 7,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            2
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 14,
+    "fields": {
+        "name": "product_14",
+        "description": "Description of product #14",
+        "price": "236.63",
+        "seller": 7,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            6
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 15,
+    "fields": {
+        "name": "product_15",
+        "description": "Description of product #15",
+        "price": "499.77",
+        "seller": 37,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            4
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 16,
+    "fields": {
+        "name": "product_16",
+        "description": "Description of product #16",
+        "price": "427.52",
+        "seller": 47,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            1
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 17,
+    "fields": {
+        "name": "product_17",
+        "description": "Description of product #17",
+        "price": "420.00",
+        "seller": 42,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            8
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 18,
+    "fields": {
+        "name": "product_18",
+        "description": "Description of product #18",
+        "price": "523.47",
+        "seller": 11,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            6
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 19,
+    "fields": {
+        "name": "product_19",
+        "description": "Description of product #19",
+        "price": "937.26",
+        "seller": 33,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            9
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 20,
+    "fields": {
+        "name": "product_20",
+        "description": "Description of product #20",
+        "price": "389.03",
+        "seller": 24,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            2
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 21,
+    "fields": {
+        "name": "product_21",
+        "description": "Description of product #21",
+        "price": "365.41",
+        "seller": 11,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            5
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 22,
+    "fields": {
+        "name": "product_22",
+        "description": "Description of product #22",
+        "price": "213.14",
+        "seller": 15,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            4
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 23,
+    "fields": {
+        "name": "product_23",
+        "description": "Description of product #23",
+        "price": "619.39",
+        "seller": 15,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            7
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 24,
+    "fields": {
+        "name": "product_24",
+        "description": "Description of product #24",
+        "price": "263.64",
+        "seller": 42,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            4
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 25,
+    "fields": {
+        "name": "product_25",
+        "description": "Description of product #25",
+        "price": "167.29",
+        "seller": 15,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            9
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 26,
+    "fields": {
+        "name": "product_26",
+        "description": "Description of product #26",
+        "price": "790.12",
+        "seller": 23,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.099Z",
+        "updated_at": "2024-12-04T11:57:04.099Z",
+        "category": [
+            7
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 27,
+    "fields": {
+        "name": "product_27",
+        "description": "Description of product #27",
+        "price": "586.14",
+        "seller": 35,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            1
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 28,
+    "fields": {
+        "name": "product_28",
+        "description": "Description of product #28",
+        "price": "474.65",
+        "seller": 7,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            9
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 29,
+    "fields": {
+        "name": "product_29",
+        "description": "Description of product #29",
+        "price": "731.13",
+        "seller": 47,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            6
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 30,
+    "fields": {
+        "name": "product_30",
+        "description": "Description of product #30",
+        "price": "948.66",
+        "seller": 5,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            6
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 31,
+    "fields": {
+        "name": "product_31",
+        "description": "Description of product #31",
+        "price": "332.14",
+        "seller": 37,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            6
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 32,
+    "fields": {
+        "name": "product_32",
+        "description": "Description of product #32",
+        "price": "455.22",
+        "seller": 23,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            9
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 33,
+    "fields": {
+        "name": "product_33",
+        "description": "Description of product #33",
+        "price": "780.00",
+        "seller": 24,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            4
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 34,
+    "fields": {
+        "name": "product_34",
+        "description": "Description of product #34",
+        "price": "134.07",
+        "seller": 23,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            6
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 35,
+    "fields": {
+        "name": "product_35",
+        "description": "Description of product #35",
+        "price": "586.38",
+        "seller": 15,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            9
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 36,
+    "fields": {
+        "name": "product_36",
+        "description": "Description of product #36",
+        "price": "837.04",
+        "seller": 11,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            3
+        ]
+    }
+},
+{
+    "model": "digital_store.product",
+    "pk": 37,
+    "fields": {
+        "name": "product_37",
+        "description": "Description of product #37",
+        "price": "133.15",
+        "seller": 42,
+        "image": "",
+        "created_at": "2024-12-04T11:57:04.100Z",
+        "updated_at": "2024-12-04T11:57:04.100Z",
+        "category": [
+            7
+        ]
+    }
+},
+{
+    "model": "digital_store.category",
+    "pk": 1,
+    "fields": {
+        "name": "Courses",
+        "description": "Online courses and educational materials for self-education and professional growth"
+    }
+},
+{
+    "model": "digital_store.category",
+    "pk": 2,
+    "fields": {
+        "name": "E-books",
+        "description": "Digital editions of books on any topic: from fiction to professional reference books"
+    }
+},
+{
+    "model": "digital_store.category",
+    "pk": 3,
+    "fields": {
+        "name": "Graphic content",
+        "description": "Templates, graphics and fonts for designers and creative professionals"
+    }
+},
+{
+    "model": "digital_store.category",
+    "pk": 4,
+    "fields": {
+        "name": "Music",
+        "description": "Audio tracks and music albums for inspiration and entertainment"
+    }
+},
+{
+    "model": "digital_store.category",
+    "pk": 5,
+    "fields": {
+        "name": "Photo content",
+        "description": "Professional photographs and image collections for various projects"
+    }
+},
+{
+    "model": "digital_store.category",
+    "pk": 6,
+    "fields": {
+        "name": "Podcasts",
+        "description": "Interesting podcasts on current topics from authors from all over the world"
+    }
+},
+{
+    "model": "digital_store.category",
+    "pk": 7,
+    "fields": {
+        "name": "Software",
+        "description": "Programs, utilities and applications for solving problems in various fields"
+    }
+},
+{
+    "model": "digital_store.category",
+    "pk": 8,
+    "fields": {
+        "name": "Video content",
+        "description": "Video materials, including clips and videos, for personal and commercial use"
+    }
+},
+{
+    "model": "digital_store.category",
+    "pk": 9,
+    "fields": {
+        "name": "Video games and in-game content",
+        "description": "Digital games and add-ons, including in-game items and bonuses"
+    }
+}
+]
