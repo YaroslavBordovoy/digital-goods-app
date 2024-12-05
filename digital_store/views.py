@@ -92,7 +92,6 @@ class CategoryDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.De
         return super().form_valid(form)
 
 
-# class ProductListView(generic.ListView):
 class ProductListView(FilterView):
     model = Product
     paginate_by = 12

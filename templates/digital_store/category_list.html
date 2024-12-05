@@ -9,7 +9,9 @@
       <a href="{% url 'digital_store:category-create' %}" class="btn btn-primary" type="button">Сreate category</a>
     {% endif %}
   </div>
+
   {% include 'includes/search_form.html' %}
+
   {% if category_list %}
       {% for category in category_list %}
         <div class="col-12">
@@ -22,18 +24,14 @@
                   {% if user.is_authenticated %}
                   <div class="text-gray small">
                     {% if perms.category.can_edit_category %}
-                      <a
-                          href="{% url 'digital_store:category-update' pk=category.pk %}"
-                          class="btn btn-secondary" type="button"
-                      >
+                      <a href="{% url 'digital_store:category-update' pk=category.pk %}"
+                          class="btn btn-secondary" type="button">
                         Update
                       </a>
                     {% endif %}
                     {% if perms.category.can_delete_category %}
-                      <a
-                          href="{% url 'digital_store:category-delete' pk=category.pk %}"
-                          class="btn btn-danger" type="button"
-                      >
+                      <a href="{% url 'digital_store:category-delete' pk=category.pk %}"
+                          class="btn btn-danger" type="button">
                         Delete
                       </a>
                     {% endif %}
