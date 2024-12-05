@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission
+from django.contrib.auth.views import LoginView
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
@@ -12,6 +13,7 @@ from accounts.services.email_service import EmailService
 from accounts.services.token_service import account_activation_token
 
 User = get_user_model()
+
 
 def register(request: HttpRequest):
     form = RegisterForm(request.POST or None)
@@ -68,5 +70,3 @@ def activate(request, uid, token):
         )
     else:
         return HttpResponse("Activation link is invalid!")
-
-

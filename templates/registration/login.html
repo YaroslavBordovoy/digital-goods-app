@@ -1,4 +1,5 @@
 {% extends "layouts/base-fullscreen.html" %}
+{% load crispy_forms_filters %}
 
 {% block title %} Sign IN {% endblock %}
 
@@ -19,45 +20,15 @@
                   Digital store - Sign IN
                 </h1>
                 <br/>
-                <p>
-                  {% if msg %}
-                    <span class="text-danger">
-                                            {{ msg | safe }}
-                                        </span>
-                  {% else %}
-                    Add your credentials
-                  {% endif %}
-                </p>
               </div>
-
-              <form method="post" action="" class="mt-4">
+                <!-- Form -->
+              <form method="post" action="" class="mt-4" novalidate>
 
                 {% csrf_token %}
 
-                <!-- Form -->
+                {{ form|crispy}}
+
                 <div class="form-group mb-4">
-                  <label for="email">Username</label>
-                  <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1">
-                        <span class="fas fa-user-circle"></span>
-                    </span>
-                    {{ form.username }}
-                  </div>
-                </div>
-                <!-- End of Form -->
-                <div class="form-group">
-                  <!-- Form -->
-                  <div class="form-group mb-4">
-                    <label for="password">Your Password</label>
-                    <div class="input-group">
-                      <span class="input-group-text" id="basic-addon2">
-                          <span class="fas fa-unlock-alt"></span>
-                      </span>
-                      {{ form.password }}
-                    </div>
-                  </div>
-                  
-                  <!-- End of Form -->
                   <div class="d-flex justify-content-between align-items-top mb-4">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="remember">
@@ -72,6 +43,9 @@
                   <button type="submit" name="login" class="btn btn-gray-800">Sign IN</button>
                 </div>
               </form>
+
+              <!-- End of Form -->
+
             </div>
           </div>
         </div>
