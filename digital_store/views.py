@@ -5,7 +5,9 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django_filters.views import FilterView
 
+from digital_store.filters import ProductFilter
 from digital_store.forms import ProductCreateForm, ProductCategorySearchForm
 from digital_store.models import Product, Category, Cart, Order, CartProduct, OrderProduct
 
@@ -90,9 +92,12 @@ class CategoryDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.De
         return super().form_valid(form)
 
 
-class ProductListView(generic.ListView):
+# class ProductListView(generic.ListView):
+class ProductListView(FilterView):
     model = Product
     paginate_by = 12
+    filterset_class = ProductFilter
+    template_name = "digital_store/product_list.html"
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ProductListView, self).get_context_data(**kwargs)

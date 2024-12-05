@@ -57,8 +57,8 @@ python manage.py test
 - Functional shopping cart with the ability to change the number of products and place orders
 
 ## Further steps in the development of the project
-- Add forms for searching for products
-- Add product filtering by categories
+- Add forms for searching for products [DONE]
+- Add product filtering by categories [DONE]
 - Add the ability to go from the category page to the corresponding products
 - Update forms for creating categories and products
 - Update favicons and product images
