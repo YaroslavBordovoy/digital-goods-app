@@ -10,4 +10,4 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = UserCreationForm.Meta.fields + ("first_name", "last_name", "email", "role",)
+        fields = UserCreationForm.Meta.fields + ("email", "role",)
