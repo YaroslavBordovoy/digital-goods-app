@@ -104,7 +104,7 @@ class OrderProduct(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     class Meta:
-        unique_together = ("product", "order",)
+        unique_together = ("product", "order")
 
 
 class CartProduct(models.Model):
@@ -120,4 +120,4 @@ class CartProduct(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     class Meta:
-        unique_together = ("product", "cart",)
+        unique_together = ("product", "cart")

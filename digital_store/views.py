@@ -58,7 +58,11 @@ class CategoryListView(generic.ListView):
         return queryset
 
 
-class CategoryCreateView(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+class CategoryCreateView(
+    LoginRequiredMixin,
+    PermissionRequiredMixin,
+    generic.CreateView
+):
     permission_required = SELLER_PERMISSIONS
     model = Category
     fields = ("name", "description",)
@@ -66,11 +70,18 @@ class CategoryCreateView(LoginRequiredMixin, PermissionRequiredMixin, generic.Cr
 
     def form_valid(self, form):
         form.instance.name = form.instance.name.lower().capitalize()
-        messages.success(self.request, "You have successfully created a new category!")
+        messages.success(
+            self.request,
+            "You have successfully created a new category!"
+        )
         return super().form_valid(form)
 
 
-class CategoryUpdateView(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+class CategoryUpdateView(
+    LoginRequiredMixin,
+    PermissionRequiredMixin,
+    generic.UpdateView
+):
     permission_required = SELLER_PERMISSIONS
     model = Category
     fields = ("name", "description",)
@@ -78,17 +89,27 @@ class CategoryUpdateView(LoginRequiredMixin, PermissionRequiredMixin, generic.Up
 
     def form_valid(self, form):
         form.instance.name = form.instance.name.lower().capitalize()
-        messages.success(self.request, "You have successfully updated the category!")
+        messages.success(
+            self.request,
+            "You have successfully updated the category!"
+        )
         return super().form_valid(form)
 
 
-class CategoryDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+class CategoryDeleteView(
+    LoginRequiredMixin,
+    PermissionRequiredMixin,
+    generic.DeleteView
+):
     permission_required = SELLER_PERMISSIONS
     model = Category
     success_url = reverse_lazy("digital_store:category-list")
 
     def form_valid(self, form):
-        messages.success(self.request, "You have successfully deleted the category!")
+        messages.success(
+            self.request,
+            "You have successfully deleted the category!"
+        )
         return super().form_valid(form)
 
 
@@ -108,7 +129,9 @@ class ProductListView(FilterView):
         return context
 
     def get_queryset(self):
-        queryset = Product.objects.select_related("seller").prefetch_related("category")
+        queryset = Product.objects.select_related(
+            "seller"
+        ).prefetch_related("category")
         form = ProductCategorySearchForm(self.request.GET)
 
         if form.is_valid():
@@ -123,7 +146,11 @@ class ProductDetailView(generic.DetailView):
     model = Product
 
 
-class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+class ProductCreateView(
+    LoginRequiredMixin,
+    PermissionRequiredMixin,
+    generic.CreateView
+):
     permission_required = SELLER_PERMISSIONS
     model = Product
     form_class = ProductCreateForm
@@ -136,7 +163,11 @@ class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, generic.Cre
         return super().form_valid(form)
 
 
-class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+class ProductUpdateView(
+    LoginRequiredMixin,
+    PermissionRequiredMixin,
+    generic.UpdateView
+):
     permission_required = SELLER_PERMISSIONS
     model = Product
     form_class = ProductCreateForm
@@ -149,7 +180,11 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, generic.Upd
         return super().form_valid(form)
 
 
-class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+class ProductDeleteView(
+    LoginRequiredMixin,
+    PermissionRequiredMixin,
+    generic.DeleteView
+):
     permission_required = SELLER_PERMISSIONS
     model = Product
     success_url = reverse_lazy("digital_store:product-list")
@@ -177,7 +212,10 @@ class CartAddView(LoginRequiredMixin, generic.View):
     def post(self, request: HttpRequest, pk: int, *args, **kwargs):
         product = get_object_or_404(Product, id=pk)
         cart, created = Cart.objects.get_or_create(customer=self.request.user)
-        cart_product, created = CartProduct.objects.get_or_create(cart=cart, product=product)
+        cart_product, created = CartProduct.objects.get_or_create(
+            cart=cart,
+            product=product
+        )
 
         action = self.request.POST.get("action")
 

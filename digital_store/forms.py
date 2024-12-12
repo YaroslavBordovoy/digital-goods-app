@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth import get_user_model
 
 from digital_store.models import Product, Category
 
@@ -12,7 +11,7 @@ class ProductCreateForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ("name", "description", "price", "category", "image",)
+        fields = ("name", "description", "price", "category", "image")
 
 
 class ProductCategorySearchForm(forms.Form):
