@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.ManyToManyField(
         to="Category",
         related_name="category_products",

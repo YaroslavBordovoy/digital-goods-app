@@ -9,7 +9,14 @@ from django_filters.views import FilterView
 
 from digital_store.filters import ProductFilter
 from digital_store.forms import ProductCreateForm, ProductCategorySearchForm
-from digital_store.models import Product, Category, Cart, Order, CartProduct, OrderProduct
+from digital_store.models import (
+    Product,
+    Category,
+    Cart,
+    Order,
+    CartProduct,
+    OrderProduct
+)
 
 
 User = get_user_model()
@@ -37,6 +44,7 @@ class IndexView(generic.TemplateView):
 
 class CategoryListView(generic.ListView):
     model = Category
+    paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(CategoryListView, self).get_context_data(**kwargs)

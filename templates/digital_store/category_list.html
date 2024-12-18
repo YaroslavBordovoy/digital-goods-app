@@ -10,7 +10,7 @@
     {% endif %}
   </div>
 
-  {% include 'includes/search_form.html' %}
+  {% include 'includes/search_form_by_title.html' %}
 
   {% if category_list %}
       {% for category in category_list %}
@@ -48,6 +48,10 @@
     <p>No categories have been created yet!</p>
   {% endif %}
 
-  {% include 'includes/footer.html' %}
+  {% block pagination %}
+    {% include "includes/pagination.html" %}
+  {% endblock %}
+
+  {% include "includes/footer.html" %}
 
 {% endblock %}
