@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from django.conf import settings
+from smtplib import SMTPException
 
 
 User = get_user_model()
@@ -17,13 +18,16 @@ class EmailService:
             uid: str,
             token: str
     ) -> None:
-        mail_subject = "Activation link has been sent to your email id"
-        context = {
-            "username": username,
-            "domain": domain,
-            "uid": uid,
-            "token": token,
-        }
+        try:
+            mail_subject = "Activation link has been sent to your email id"
+            context = {
+                "username": username,
+                "domain": domain,
+                "uid": uid,
+                "token": token,
+            }
 
-        message = render_to_string("registration/acc_activate_email.html", context)
-        send_mail(mail_subject, message, self.from_email, [to_email])
+            message = render_to_string("registration/acc_activate_email.html", context)
+            send_mail(mail_subject, message, self.from_email, [to_email])
+        except SMTPException as error:
+            raise RuntimeError(f"SMTP error occurred: {error}")

@@ -21,24 +21,31 @@ def register(request: HttpRequest):
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
-            user.save()
 
             domain = get_current_site(request).domain
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = account_activation_token.make_token(user)
 
-            email_service = EmailService()
-            email_service.send_activation_email(
-                username=user.username,
-                domain=domain,
-                uid=uid,
-                to_email=user.email,
-                token=token,
-            )
+            try:
+                email_service = EmailService()
+                email_service.send_activation_email(
+                    username=user.username,
+                    domain=domain,
+                    uid=uid,
+                    to_email=user.email,
+                    token=token,
+                )
 
-            messages.info(request, "Please confirm your activation")
+                user.save()
+                messages.info(request, "Please confirm your activation by email")
 
-            return redirect("accounts:login")
+                return redirect("accounts:login")
+            except RuntimeError as error:
+                messages.error(
+                    request,
+                    f"There was an error sending the activation email: {error}"
+                )
+                return redirect("accounts:register")
 
     return render(request, "registration/register.html", {"form": form})
 

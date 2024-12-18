@@ -20,6 +20,20 @@
                   Digital store - Sign IN
                 </h1>
                 <br/>
+                <p>
+                  {% if messages %}
+                    <ul class="messages list-unstyled">
+                      {% for message in messages %}
+                        <li class="alert alert-{{ message.tags }} alert-warning fade show" role="alert">
+                          {{ message }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    Add your credentials
+                  {% endif %}
+                </p>
               </div>
                 <!-- Form -->
               <form method="post" action="" class="mt-4" novalidate>

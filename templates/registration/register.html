@@ -15,8 +15,15 @@
                 <h1 class="mb-0 h3">Digital store - Sign UP</h1>
                 <br/>
                 <p>
-                  {% if msg %}
-                    {{ msg|safe }}
+                  {% if messages %}
+                    <ul class="messages list-unstyled">
+                      {% for message in messages %}
+                        <li class="alert alert-{{ message.tags }} alert-danger fade show" role="alert">
+                          {{ message }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </li>
+                      {% endfor %}
+                    </ul>
                   {% else %}
                     Add your credentials
                   {% endif %}
