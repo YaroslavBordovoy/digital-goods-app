@@ -5,11 +5,18 @@
 {% block content %}
 
   <div class="col-12">
+
     <div class="card card-body border-0 shadow mb-4">
-    
+      <div class="text-left mb-4">
+        <img src="{{ ASSETS_ROOT }}/img/image-not-found.webp"
+             alt="Product image"
+             class="img-fluid rounded"
+             style="width: 300px; height: 200px; object-fit: cover;">
+      </div>
+
       <h3 class="h5 mb-4">Product name: {{ product.name }}</h3>
       <div class="d-flex align-items-center">
-      
+
         <div class="file-field">
           <div class="d-md-block text-left">
             {% if product.description %}

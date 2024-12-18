@@ -17,7 +17,10 @@
       {% for product in product_list %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
           <div class="card shadow border-0 text-center p-0" style="max-width: 18rem;">
-            <div class="profile-cover rounded-top" data-background="{{ ASSETS_ROOT }}/img/profile-cover.jpg"></div>
+            <div class="profile-cover rounded-top"
+                 style="background-image: url('{{ ASSETS_ROOT }}/img/image-not-found.webp');
+                     background-size: cover; background-position: center;">
+            </div>
             <div class="card-body pb-5">
               <h4 class="h5">
                 {{ product.name }}
