@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from digital_store.models import Category, Product
 
 
-def add_products():
+def add_products() -> None:
     categories = list(Category.objects.all())
     sellers = list(get_user_model().objects.filter(role="SL"))
 
@@ -21,7 +21,11 @@ def add_products():
 
     products = Product.objects.bulk_create(product_objects)
 
-    for product in products:
-        product.category.add(random.choice(categories))
+    product_categories = [
+        product.category.through(product_id=product.id, category_id=random.choice(categories).id)
+        for product in products
+    ]
+
+    Product.category.through.objects.bulk_create(product_categories)
 
     print("Products created successfully")

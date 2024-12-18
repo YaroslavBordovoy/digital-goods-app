@@ -8,7 +8,7 @@ from accounts.models import User
 fake = Faker()
 
 def add_users():
-    roles = ["SL", "CS"]
+    roles = ["SL"] * 1 + ["CS"] * 3
     user_objects = [
         User(
             username=fake.user_name(),
@@ -18,7 +18,7 @@ def add_users():
             email=fake.email(),
             is_staff=False,
             is_active=True,
-            role=random.choices(roles, weights=[1, 3], k=1)[0],
+            role=random.choice(roles),
         )
         for _ in range(51)
     ]
