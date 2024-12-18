@@ -1,5 +1,6 @@
 from digital_store.models import Category
 
+
 CATEGORIES = [
     {
         "name": "Courses",

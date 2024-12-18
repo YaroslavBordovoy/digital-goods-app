@@ -4,6 +4,7 @@ from faker import Faker
 
 from accounts.models import User
 
+
 fake = Faker()
 
 def add_users():

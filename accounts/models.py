@@ -10,6 +10,6 @@ class User(AbstractUser):
 
     role = models.CharField(
         max_length=2,
-        choices=UserRole,
+        choices=UserRole.choices,
         default=UserRole.CUSTOMER
     )

@@ -11,6 +11,7 @@ from digital_store.filters import ProductFilter
 from digital_store.forms import ProductCreateForm, ProductCategorySearchForm
 from digital_store.models import Product, Category, Cart, Order, CartProduct, OrderProduct
 
+
 User = get_user_model()
 SELLER_PERMISSIONS = [
     "category.can_add_category",

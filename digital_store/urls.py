@@ -17,6 +17,7 @@ from digital_store.views import (
     OrderCreateView,
 )
 
+
 app_name = "digital_store"
 
 urlpatterns = [

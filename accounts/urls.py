@@ -2,6 +2,7 @@ from django.urls import path, include
 
 from accounts.views import register, activate
 
+
 app_name = "accounts"
 
 urlpatterns = [

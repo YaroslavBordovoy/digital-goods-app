@@ -23,6 +23,9 @@ At the moment, the following has been implemented:
 - ✅**Cart** → page with a list of selected goods for order confirmation
 
 ## How to run the project:
+### Important!
+For the project to work correctly, you need to set up environment variables. See .env.sample
+
 1. Clone the repository: 
 ```
 git clone https://github.com/YaroslavBordovoy/digital-goods-app.git
@@ -59,7 +62,6 @@ python manage.py test
 ## Further steps in the development of the project
 - Add forms for searching for products [DONE]
 - Add product filtering by categories [DONE]
-- Add the ability to go from the category page to the corresponding products
 - Update forms for creating categories and products
 - Update favicons and product images
 - Improve the order history, making it more informative

@@ -11,8 +11,8 @@ from accounts.forms import RegisterForm
 from accounts.services.email_service import EmailService
 from accounts.services.token_service import account_activation_token
 
-User = get_user_model()
 
+User = get_user_model()
 
 def register(request: HttpRequest):
     form = RegisterForm(request.POST or None)
