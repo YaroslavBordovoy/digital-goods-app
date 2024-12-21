@@ -1,0 +1,23 @@
+{% load query_transform %}
+{% if is_paginated %}
+<div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination mb-0">
+      {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a href="?{% query_transform request page=page_obj.previous_page_number %}" class="page-link">Previous</a>
+      </li>
+      {% endif %}
+      <li class="page-item active">
+        <span class="page-link">{{ page_obj.number }} of {{ paginator.num_pages }}</span>
+      </li>
+      {% if page_obj.has_next %}
+      <li class="page-item">
+        <a href="?{% query_transform request page=page_obj.next_page_number %}" class="page-link">Next</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+{#  <div class="fw-normal small mt-4 mt-lg-0">Showing <b>{{ products.paginator.per_page }}</b> out of <b>{{ product.paginator.count }}</b> entries</div>#}
+</div>
+{% endif %}

@@ -1,0 +1,64 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Product detail {% endblock %}
+
+{% block content %}
+
+  <div class="col-12">
+
+    <div class="card card-body border-0 shadow mb-4">
+      <div class="text-left mb-4">
+        <img src="{{ ASSETS_ROOT }}/img/image-not-found.webp"
+             alt="Product image"
+             class="img-fluid rounded"
+             style="width: 300px; height: 200px; object-fit: cover;">
+      </div>
+
+      <h3 class="h5 mb-4">Product name: {{ product.name }}</h3>
+      <div class="d-flex align-items-center">
+
+        <div class="file-field">
+          <div class="d-md-block text-left">
+            {% if product.description %}
+              <div class="fw-normal text-dark mb-1">Description: {{ product.description }}</div>
+            {% else %}
+              <div class="fw-normal text-dark mb-1">Description is missing</div>
+            {% endif %}
+            <div class="fw-normal text-dark mb-1">Seller: {{ product.seller.username }}</div>
+            <div class="fw-normal text-dark mb-1">Price: {{ product.price }}</div>
+            {% if product.category.all %}
+              <div class="fw-normal text-dark mb-1">
+                Category:
+                {% for category in product.category.all %}
+                  {{ category.name }} {% if not forloop.last %}, {% endif %}
+                {% endfor %}
+              </div>
+            {% else %}
+              <p class="text-muted">No categories assigned</p>
+            {% endif %}
+            <br>
+
+            {% if user.is_authenticated %}
+              <div class="text-gray small">
+                <form method="post" action="{% url 'digital_store:cart-add' pk=product.pk %}">
+                  {% csrf_token %}
+                  <input type="submit" value="Add product to cart" class="btn btn-info">
+                </form>
+              </div>
+              {% if perms.can_edit_product and perms.can_delete_product %}
+                <br>
+                <a href="{% url 'digital_store:product-update' pk=product.pk %}" class="btn btn-secondary" type="button">
+                  Update
+                </a>
+                <a href="{% url 'digital_store:product-delete' pk=product.pk %}" class="btn btn-danger" type="button">
+                  Delete
+                </a>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}

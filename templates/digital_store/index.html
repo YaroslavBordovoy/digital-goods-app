@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <!-- Primary Meta Tags -->
+  <title>
+    Digital store - Home page
+  </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ ASSETS_ROOT }}/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ ASSETS_ROOT }}/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{ ASSETS_ROOT }}/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="{{ ASSETS_ROOT }}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+
+
+  <!-- Sweet Alert -->
+  <link type="text/css" href="{{ ASSETS_ROOT }}/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+
+  <!-- Volt CSS -->
+  <link type="text/css" href="{{ ASSETS_ROOT }}/css/volt.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="header-global">
+  <nav id="navbar-main" aria-label="Primary navigation"
+       class="navbar navbar-main navbar-expand-lg navbar-theme-primary pt-4 navbar-dark"
+    style="background: transparent; position: absolute; top: 0; width: 100%; z-index: 10;">
+    <div class="container position-relative">
+      <div class="navbar-collapse collapse me-auto" id="navbar_global">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <a href="/">
+                <img src="{{ ASSETS_ROOT }}/img/brand/light.svg" alt="Volt logo">
+              </a>
+            </div>
+            <div class="col-6 collapse-close">
+              <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global"
+                 aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item me-2">
+            <a href="{% url 'digital_store:category-list' %}" class="nav-link">Categories</a>
+          </li>
+          <li class="nav-item me-2">
+            <a href="{% url 'digital_store:product-list' %}" class="nav-link">All products</a>
+          </li>
+          <li class="nav-item me-2">
+            <a href="{% url 'digital_store:order-list' %}" class="nav-link">Order history</a>
+          </li>
+          <li class="nav-item me-2">
+            <a href="{% url 'digital_store:cart-list' %}" class="nav-link">Cart</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center ms-auto">
+        {% if user.is_authenticated %}
+          <form method="post" action="{% url 'accounts:logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="Logout" class="btn btn-outline-white d-inline-flex align-items-center me-md-3">
+          </form>
+        {% else %}
+          <form method="post" action="{% url 'accounts:login' %}">
+            {% csrf_token %}
+            <input type="submit" value="Login" class="btn btn-outline-white d-inline-flex align-items-center me-md-3">
+          </form>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 text-white"
+    style="background-image: url('/static/assets/img/ind-photo2.jpg');
+    background-size: cover; background-position: center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="fw-bolder">DIGITAL STORE</h1>
+          <h2 class="lead fw-normal text-muted mb-5">
+            Discover, create, and trade digital products in our Digital Store – the perfect platform for buyers and
+            sellers to connect and share innovative content
+          </h2>
+          <div class="d-flex justify-content-center flex-column mb-6 mb-lg-5">
+            <a href="https://themesberg.com" target="_blank"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2">
+      <svg class="home-pattern" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+        <path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
+      </svg>
+    </figure>
+
+    <div class="container">
+      <div class="row justify-content-center mb-5 mb-lg-6">
+        <div class="col-6 col-md-3 text-center mb-4">
+          <div class="icon icon-shape bg-white shadow-lg rounded mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+              <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0
+              298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8
+              72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5
+              43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640
+              298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128
+              411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7
+              0c-14.7 0-26.7-11.9-26.7-26.7z"/>
+            </svg>
+          </div>
+          <h3 class="fw-bolde">{{ customer_amount }}</h3>
+          <p class="text-gray">number of buyers</p>
+        </div>
+        <div class="col-6 col-md-3 text-center mb-4">
+          <div class="icon icon-shape bg-white shadow-lg rounded mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/>
+          </svg>
+          </div>
+          <h3 class="fw-bolder">{{ seller_amount }}</h3>
+          <p class="text-gray">number of sellers</p>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <div class="icon icon-shape bg-white shadow-lg rounded mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41
+              152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7
+              24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7
+              48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+            </svg>
+          </div>
+          <h3 class="fw-bolder">{{ product_amount }}</h3>
+          <p class="text-gray">number of products</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

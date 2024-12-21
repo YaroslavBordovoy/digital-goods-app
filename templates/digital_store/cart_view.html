@@ -1,0 +1,54 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Shopping cart {% endblock %}
+
+{% block content %}
+  <div class="d-flex">
+    <h1>Shopping cart</h1>
+  </div>
+
+  {% if cart_items %}
+    {% for item in cart_items %}
+      <div class="col-12">
+        <div class="card card-body border-0 shadow mb-4">
+          <h2 class="h5 mb-4">Product name: {{ item.product.name }}</h2>
+          <div class="d-flex align-items-center">
+            <div class="file-field">
+              <div class="d-md-block text-left">
+
+                <div class="fw-normal text-dark mb-1">Price: {{ item.product.price }}</div>
+                <div class="fw-normal text-dark mb-1">Quantity: {{ item.quantity }}</div>
+                <br>
+
+                <form method="post" action="{% url 'digital_store:cart-quantity-change' pk=item.product.pk %}">
+                  {% csrf_token %}
+                  <button type="submit" name="action" value="increase" class="btn btn-info">Add product</button>
+                  <button type="submit" name="action" value="reduce" class="btn btn-secondary">Reduce product</button>
+                  <button type="submit" name="action" value="delete" class="btn btn-danger">Delete product</button>
+                </form>
+                <br>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="card card-body border-0 shadow mb-4">
+      <div class="d-md-block text-left">
+        <div class="fw-normal text-dark mb-1">Total price: {{ total_price }}</div>
+        <br>
+        
+        <form method="post" action="{% url 'digital_store:order-create' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Place an order</button>
+        </form>
+      </div>
+    </div>
+  {% else %}
+    <p>You have not added any products!</p>
+  {% endif %}
+  <a href="{% url "digital_store:index" %}" class="btn btn-secondary" type="button">
+    Home page
+  </a>
+{% endblock %}

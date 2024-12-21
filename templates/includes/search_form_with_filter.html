@@ -1,0 +1,18 @@
+{% load crispy_forms_filters %}
+
+<div class="d-flex align-items-center">
+  <!-- Search form -->
+  <form method="get" action="" class="navbar-search form-inline" id="navbar-search-main">
+    <div class="input-group input-group-merge search-bar">
+      {{ search_form|crispy }}
+    </div>
+    <br>
+    <div class="input-group input-group-merge search-bar">
+      {{ filter.form|crispy }}
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Apply Filters</button>
+  </form>
+  <!-- / Search form -->
+</div>
+<br>

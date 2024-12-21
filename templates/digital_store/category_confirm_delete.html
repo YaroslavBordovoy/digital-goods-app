@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Delete category {% endblock %}
+
+{% block content %}
+
+  <div class="col-12">
+    <div class="card card-body border-0 shadow mb-4">
+      <h3 class="h5 mb-4">Are you sure you want to delete "{{ category.name }}" category?</h3>
+      <div class="d-flex align-items-center">
+        <div class="file-field">
+          <div class="d-md-block text-left">
+
+            {% if user.is_authenticated and perms.can_delete_category %}
+              <div class="text-gray small d-flex gap-2">
+                <form method="post" action="" novalidate>
+                  {% csrf_token %}
+                  <input type="submit" value="Yes, delete" class="btn btn-sm btn-danger">
+                </form>
+                <form method="post" action="" novalidate>
+                  {% csrf_token %}
+                  <a href="{% url 'digital_store:category-list' %}" class="btn btn-sm btn-info" type="button">
+                    Return to previous page
+                  </a>
+                </form>
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
